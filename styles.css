@@ -305,6 +305,15 @@ html[data-theme="light"] .theme-toggle__moon { display: none; }
   margin-top: 1.6rem;
 }
 
+.about__etymology {
+  font-size: 0.9rem !important;
+  color: var(--muted) !important;
+  font-style: normal;
+  border-left: 1px solid var(--border);
+  padding-left: 1.2rem;
+  margin-top: 2.4rem !important;
+}
+
 /* ── Services ─────────────────────────────────────────────── */
 .services {
   padding: clamp(5rem, 10vw, 10rem) 0;
@@ -317,7 +326,7 @@ html[data-theme="light"] .theme-toggle__moon { display: none; }
 
 .services__grid {
   display: grid;
-  grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
+  grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
   gap: 0;
   border-left: 1px solid var(--border);
   border-top: 1px solid var(--border);
@@ -389,10 +398,20 @@ html[data-theme="light"] .theme-toggle__moon { display: none; }
   text-decoration: none;
   letter-spacing: 0.04em;
   transition: opacity 0.2s;
+  display: block;
 }
 
 .contact__details a:hover {
   opacity: 0.7;
+}
+
+.contact__details address {
+  font-style: normal;
+  font-size: 0.85rem;
+  color: var(--muted);
+  line-height: 1.8;
+  letter-spacing: 0.03em;
+  margin-top: 1rem;
 }
 
 /* Form */
