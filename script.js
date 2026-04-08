@@ -1,4 +1,21 @@
-// Contact form — client-side handling
+// ── Theme Toggle ──────────────────────────────────────────────
+const html        = document.documentElement;
+const toggleBtn   = document.getElementById('themeToggle');
+const STORAGE_KEY = 'suvera-theme';
+
+function applyTheme(theme) {
+  html.setAttribute('data-theme', theme);
+  localStorage.setItem(STORAGE_KEY, theme);
+}
+
+// Restore saved preference (fall back to dark)
+applyTheme(localStorage.getItem(STORAGE_KEY) || 'dark');
+
+toggleBtn.addEventListener('click', () => {
+  applyTheme(html.getAttribute('data-theme') === 'light' ? 'dark' : 'light');
+});
+
+// ── Contact form — client-side handling ───────────────────────
 const form = document.getElementById('contactForm');
 const successMsg = document.getElementById('formSuccess');
 
