@@ -1,18 +1,3 @@
-// ── Theme Toggle ───────────────────────────────────────────────
-const html        = document.documentElement;
-const toggleBtn   = document.getElementById('themeToggle');
-const STORAGE_KEY = 'suvera-theme';
-
-function applyTheme(theme) {
-  html.setAttribute('data-theme', theme);
-  localStorage.setItem(STORAGE_KEY, theme);
-}
-applyTheme(localStorage.getItem(STORAGE_KEY) || 'dark');
-
-toggleBtn.addEventListener('click', () => {
-  applyTheme(html.getAttribute('data-theme') === 'light' ? 'dark' : 'light');
-});
-
 // ── Custom Cursor ──────────────────────────────────────────────
 const cursor = document.createElement('div');
 cursor.className = 'cursor';
