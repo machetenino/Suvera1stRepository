@@ -285,7 +285,7 @@ ol   { list-style: none; }
   content:    '';
   position:   absolute;
   inset:      0;
-  background: url('../texture.jpg') center / cover;
+  background: url('texture.png') center / cover;
   opacity:    .03;
   pointer-events: none;
 }
