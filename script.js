@@ -23,7 +23,7 @@ document.addEventListener('mousemove', e => {
 });
 
 document.addEventListener('mouseover', e => {
-  const hoverable = e.target.closest('a, button, input, select, textarea, [role="button"]');
+  const hoverable = e.target.closest('a, button, input, select, textarea, [role="button"], .service-row__summary');
   cursor.classList.toggle('cursor--hover', !!hoverable);
 });
 
@@ -68,6 +68,16 @@ const sectionObserver = new IntersectionObserver(
   { threshold: 0.35 }
 );
 sections.forEach(s => sectionObserver.observe(s));
+
+// ── Services Accordion ────────────────────────────────────────
+document.querySelectorAll('.service-row__summary').forEach(summary => {
+  summary.addEventListener('click', () => {
+    const row = summary.closest('.service-row');
+    const isOpen = row.classList.contains('is-open');
+    document.querySelectorAll('.service-row').forEach(r => r.classList.remove('is-open'));
+    if (!isOpen) row.classList.add('is-open');
+  });
+});
 
 // ── Contact Form ───────────────────────────────────────────────
 const form       = document.getElementById('contactForm');
