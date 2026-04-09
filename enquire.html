@@ -1,0 +1,163 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Enquire — Suvera Projects Group</title>
+  <meta name="description" content="Tell us about your project. We respond within one business day — a straight conversation about whether we are the right firm for your project.">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,300;0,400;0,500;0,600;1,300;1,400;1,500;1,600&family=Jost:wght@300;400;500&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="assets/css/style.css">
+</head>
+<body class="page-interior">
+
+
+  <!-- ════════════════════════════════════
+       HEADER
+  ════════════════════════════════════ -->
+  <header class="header" id="header">
+    <div class="header__inner">
+      <a href="index.html" class="header__logo" aria-label="Suvera home">SUVERA</a>
+      <nav class="header__nav" aria-label="Primary navigation">
+        <a href="about.html" class="header__link">About</a>
+        <a href="services.html" class="header__link">Services</a>
+        <a href="process.html" class="header__link">Process</a>
+        <a href="enquire.html" class="header__cta header__cta--active">Enquire</a>
+      </nav>
+    </div>
+  </header>
+
+
+  <!-- ════════════════════════════════════
+       CONTACT
+  ════════════════════════════════════ -->
+  <section class="contact contact--page" id="contact" aria-label="Contact Suvera">
+    <div class="contact__inner">
+
+      <div class="contact__info">
+        <span class="label fade-in" data-d="0">Get in touch</span>
+        <h1 class="contact__heading fade-in" data-d="1">Tell us about<br>your project.</h1>
+        <p class="contact__intro fade-in" data-d="2">
+          Use the form or email us directly at
+          <a href="mailto:info@suvera.com.au">info@suvera.com.au</a>.
+          We respond within one business day &mdash; no automated replies,
+          no account managers. A straight conversation about whether we are
+          the right firm for your project.
+        </p>
+        <address class="contact__details fade-in" data-d="3">
+          <p>Email &mdash; <a href="mailto:info@suvera.com.au">info@suvera.com.au</a></p>
+          <p>Website &mdash; suvera.com.au</p>
+          <p>Address &mdash; Suite 848, Level 8 &middot; 25 Restwell St &middot; Bankstown NSW 2200</p>
+        </address>
+      </div>
+
+      <form
+        class="contact__form"
+        id="contactForm"
+        action="https://formspree.io/f/YOUR_FORM_ID"
+        method="POST"
+        novalidate
+        aria-label="Enquiry form"
+      >
+        <div class="form-row form-row--2">
+          <div class="form-field">
+            <label for="f-name">Name</label>
+            <input type="text" id="f-name" name="name" required autocomplete="name">
+          </div>
+          <div class="form-field">
+            <label for="f-company">Company</label>
+            <input type="text" id="f-company" name="company" autocomplete="organization">
+          </div>
+        </div>
+        <div class="form-row form-row--2">
+          <div class="form-field">
+            <label for="f-email">Email</label>
+            <input type="email" id="f-email" name="email" required autocomplete="email">
+          </div>
+          <div class="form-field">
+            <label for="f-phone">Phone</label>
+            <input type="tel" id="f-phone" name="phone" autocomplete="tel">
+          </div>
+        </div>
+        <div class="form-row form-row--2">
+          <div class="form-field">
+            <label for="f-type">Project type</label>
+            <div class="select-wrap">
+              <select id="f-type" name="project_type">
+                <option value="" disabled selected></option>
+                <option>Commercial fitout</option>
+                <option>Workplace fitout</option>
+                <option>Retail fitout</option>
+                <option>Hospitality fitout</option>
+                <option>Industrial refurbishment</option>
+                <option>Make good &amp; tenancy works</option>
+                <option>Other</option>
+              </select>
+            </div>
+          </div>
+          <div class="form-field">
+            <label for="f-value">Approximate value</label>
+            <div class="select-wrap">
+              <select id="f-value" name="project_value">
+                <option value="" disabled selected></option>
+                <option>Under $100k</option>
+                <option>$100k&ndash;$250k</option>
+                <option>$250k&ndash;$500k</option>
+                <option>$500k&ndash;$1M</option>
+                <option>Over $1M</option>
+                <option>Not sure yet</option>
+              </select>
+            </div>
+          </div>
+        </div>
+        <div class="form-row">
+          <div class="form-field">
+            <label for="f-message">Tell us about the project</label>
+            <textarea
+              id="f-message"
+              name="message"
+              rows="5"
+              placeholder="Location, scope, timing &mdash; anything that helps us understand the brief&#8230;"
+            ></textarea>
+          </div>
+        </div>
+        <div class="form-submit">
+          <button type="submit" class="btn btn--solid">Send enquiry</button>
+          <span class="form__note">We respond within one business day.</span>
+        </div>
+        <div class="form__success" id="formSuccess" hidden role="status">
+          Thank you. We have received your enquiry and will be in touch within one business day.
+        </div>
+      </form>
+
+    </div>
+  </section>
+
+
+  <!-- ════════════════════════════════════
+       FOOTER
+  ════════════════════════════════════ -->
+  <footer class="footer">
+    <div class="footer__inner">
+      <div class="footer__brand">
+        <span class="footer__logo">SUVERA</span>
+        <span class="footer__tagline">Considered construction.</span>
+      </div>
+      <nav class="footer__nav" aria-label="Footer navigation">
+        <a href="about.html">About</a>
+        <a href="services.html">Services</a>
+        <a href="process.html">Process</a>
+        <a href="enquire.html">Enquire</a>
+      </nav>
+      <p class="footer__legal">
+        Suvera Projects Group Pty Ltd &middot; ABN 90&nbsp;695&nbsp;741&nbsp;667
+        &middot; &copy; 2026 &middot; Sydney, NSW
+      </p>
+    </div>
+  </footer>
+
+
+  <script src="assets/js/main.js"></script>
+</body>
+</html>
