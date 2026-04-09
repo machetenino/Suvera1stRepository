@@ -607,6 +607,42 @@ button { cursor: pointer; font-family: inherit; }
   color:       var(--mid);
 }
 
+/* Company facts panel */
+.firm-facts {
+  margin-top:     40px;
+  border-top:     0.5px solid var(--rule);
+  display:        flex;
+  flex-direction: column;
+}
+.firm-facts__item {
+  display:               grid;
+  grid-template-columns: 96px 1fr;
+  gap:                   0 16px;
+  padding:               10px 0;
+  border-bottom:         0.5px solid var(--rule);
+  align-items:           baseline;
+}
+.firm-facts__item dt {
+  font-family:    var(--fb);
+  font-size:      10px;
+  font-weight:    400;
+  letter-spacing: 0.1em;
+  text-transform: uppercase;
+  color:          var(--muted);
+}
+.firm-facts__item dd {
+  font-size:   12px;
+  font-weight: 300;
+  line-height: 1.75;
+  color:       var(--mid);
+}
+.firm-facts__item dd em {
+  font-family:   var(--fd);
+  font-style:    italic;
+  font-size:     13px;
+  color:         var(--black);
+}
+
 /* Sticky image */
 .about__media {
   position:   sticky;
