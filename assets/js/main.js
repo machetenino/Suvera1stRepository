@@ -1,107 +1,115 @@
-/* ════════════════════════════════════════════
-   SUVERA — MAIN SCRIPT
-════════════════════════════════════════════ */
+/* ══════════════════════════════════════════════
+   SUVERA  ·  Main Script
+   - Nav slim on scroll
+   - Scroll reveal (IntersectionObserver)
+   - Parallax: image break + statement bg
+   - Smooth anchor scroll
+══════════════════════════════════════════════ */
 
 'use strict';
 
-/* ─── NAV: shrink on scroll ─── */
-(function initNav() {
+/* ─────────────────────────────────
+   NAV — slim on scroll
+───────────────────────────────── */
+(function () {
   const nav = document.getElementById('nav');
   if (!nav) return;
 
-  const onScroll = () => {
-    if (window.scrollY > 60) {
-      nav.classList.add('scrolled');
-    } else {
-      nav.classList.remove('scrolled');
-    }
-  };
-
-  window.addEventListener('scroll', onScroll, { passive: true });
-  onScroll();
-})();
+  const update = () => nav.classList.toggle('slim', window.scrollY > 60);
+  window.addEventListener('scroll', update, { passive: true });
+  update();
+}());
 
 
-/* ─── SCROLL REVEAL ─── */
-(function initReveal() {
+/* ─────────────────────────────────
+   SCROLL REVEAL
+───────────────────────────────── */
+(function () {
   const els = document.querySelectorAll('.reveal');
   if (!els.length) return;
 
-  const observer = new IntersectionObserver(
+  const io = new IntersectionObserver(
     (entries) => {
-      entries.forEach((entry) => {
-        if (entry.isIntersecting) {
-          entry.target.classList.add('visible');
-          observer.unobserve(entry.target);
+      entries.forEach((e) => {
+        if (e.isIntersecting) {
+          e.target.classList.add('in');
+          io.unobserve(e.target);
         }
       });
     },
-    {
-      threshold: 0.1,
-      rootMargin: '0px 0px -56px 0px',
-    }
+    { threshold: 0.1, rootMargin: '0px 0px -48px 0px' }
   );
 
-  els.forEach((el) => observer.observe(el));
-})();
+  els.forEach((el) => io.observe(el));
+}());
 
 
-/* ─── PARALLAX: image break section ─── */
-(function initParallax() {
-  const imgs = document.querySelectorAll('.parallax-img');
-  if (!imgs.length) return;
+/* ─────────────────────────────────
+   PARALLAX
+   Uses rAF loop for smooth motion.
+   Applies to:
+     .parallax       → imgbreak inner
+     .parallax-stmt  → statement bg
+───────────────────────────────── */
+(function () {
+  const vh = () => window.innerHeight;
 
-  const update = () => {
-    const vh = window.innerHeight;
+  // Compute offset for any parallax element
+  function getOffset(el, strength) {
+    const section = el.parentElement;
+    const r = section.getBoundingClientRect();
+    const h = vh();
 
-    imgs.forEach((img) => {
-      const section = img.closest('.image-break');
-      if (!section) return;
+    // Skip elements fully off-screen
+    if (r.bottom < -100 || r.top > h + 100) return null;
 
-      const rect = section.getBoundingClientRect();
+    // Progress: 0 when section bottom hits viewport top → 1 when section top hits viewport bottom
+    const progress = (h - r.top) / (h + r.height);
+    return ((progress - 0.5) * strength).toFixed(2);
+  }
 
-      // Only compute when section is near the viewport
-      if (rect.bottom < -100 || rect.top > vh + 100) return;
+  const breakEl = document.querySelector('.parallax');
+  const stmtEl  = document.querySelector('.parallax-stmt');
 
-      // Progress: 0 (section bottom at viewport top) → 1 (section top at viewport bottom)
-      const progress = 1 - (rect.top / (vh + rect.height));
-      // Map progress to a modest offset: -60px → +60px
-      const offset = (progress - 0.5) * 120;
+  let ticking = false;
 
-      img.style.transform = `translateY(${offset.toFixed(2)}px)`;
+  function onScroll() {
+    if (ticking) return;
+    ticking = true;
+
+    requestAnimationFrame(() => {
+      if (breakEl) {
+        const y = getOffset(breakEl, 110);
+        if (y !== null) breakEl.style.transform = `translateY(${y}px)`;
+      }
+
+      if (stmtEl) {
+        const y = getOffset(stmtEl, 80);
+        if (y !== null) stmtEl.style.transform = `translateY(${y}px)`;
+      }
+
+      ticking = false;
     });
-  };
+  }
 
-  window.addEventListener('scroll', update, { passive: true });
-  window.addEventListener('resize', update, { passive: true });
-  update();
-})();
+  window.addEventListener('scroll', onScroll, { passive: true });
+  window.addEventListener('resize', onScroll, { passive: true });
+  onScroll();
+}());
 
 
-/* ─── SMOOTH anchor links ─── */
-(function initSmoothAnchors() {
-  document.querySelectorAll('a[href^="#"]').forEach((anchor) => {
-    anchor.addEventListener('click', (e) => {
-      const target = document.querySelector(anchor.getAttribute('href'));
+/* ─────────────────────────────────
+   SMOOTH ANCHOR LINKS
+   (Polyfill for browsers that
+    don't respect scroll-behavior)
+───────────────────────────────── */
+(function () {
+  document.querySelectorAll('a[href^="#"]').forEach((a) => {
+    a.addEventListener('click', (e) => {
+      const target = document.querySelector(a.getAttribute('href'));
       if (!target) return;
-
       e.preventDefault();
       target.scrollIntoView({ behavior: 'smooth', block: 'start' });
     });
   });
-})();
-
-
-/* ─── SERVICE CARDS: stagger reveal ─── */
-(function initServiceCards() {
-  const cards = document.querySelectorAll('.service-card');
-  if (!cards.length) return;
-
-  // Assign grid-position-aware delays so cards cascade left→right, top→bottom
-  const cols = window.innerWidth > 1024 ? 3 : window.innerWidth > 680 ? 2 : 1;
-
-  cards.forEach((card, i) => {
-    const col = i % cols;
-    card.style.transitionDelay = `${col * 0.08}s`;
-  });
-})();
+}());

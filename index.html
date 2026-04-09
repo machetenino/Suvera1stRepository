@@ -3,11 +3,8 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>SUVERA — Construction Management</title>
-  <meta name="description" content="SUVERA is a Sydney-based construction management firm responsible for every decision that shapes the outcome of your commercial fitout.">
-  <meta property="og:title" content="SUVERA — Construction Management">
-  <meta property="og:description" content="One firm. Responsible for every part of it.">
-  <meta property="og:type" content="website">
+  <title>SUVERA — Construction Management, Sydney</title>
+  <meta name="description" content="SUVERA is a Sydney-based construction management firm. One firm. Responsible for every part of it.">
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500&display=swap" rel="stylesheet">
@@ -15,200 +12,209 @@
 </head>
 <body>
 
-  <!-- ═══════════════════════════════════
-       NAVIGATION
-  ═══════════════════════════════════ -->
-  <nav class="nav" id="nav">
-    <a href="#hero" class="nav__logo">SUVERA</a>
-    <a href="#contact" class="nav__contact">Contact</a>
+  <!-- ─────────────────────────────────
+       NAV
+  ───────────────────────────────── -->
+  <nav class="nav" id="nav" aria-label="Site navigation">
+    <a href="#top" class="nav__logo">SUVERA</a>
+    <a href="#contact" class="nav__link">Contact</a>
   </nav>
 
-  <!-- ═══════════════════════════════════
-       01 — HERO
-  ═══════════════════════════════════ -->
-  <section class="hero" id="hero">
-    <div class="hero__bg">
-      <div class="hero__img" style="background-image: url('assets/images/hero.jpg');"></div>
-      <div class="hero__gradient"></div>
+
+  <!-- ─────────────────────────────────
+       01  HERO
+  ───────────────────────────────── -->
+  <section class="hero" id="top" aria-label="Hero">
+    <div class="hero__bg" aria-hidden="true">
+      <div class="hero__img" style="background-image:url('hero.jpg')"></div>
+      <div class="hero__veil"></div>
     </div>
+
     <div class="hero__content">
-      <h1 class="hero__name fade-in" data-delay="0">SUVERA</h1>
-      <p class="hero__tagline fade-in" data-delay="1">
-        One firm.<br>Responsible for every part of it.
+      <h1 class="hero__wordmark fade-in" data-d="0">SUVERA</h1>
+      <p class="hero__headline fade-in" data-d="1">
+        One firm.<br>
+        Responsible for every part of it.
       </p>
-      <p class="hero__body fade-in" data-delay="2">
-        We manage the full delivery of commercial fitouts —<br>
-        holding the programme, coordinating every consultant,<br>
-        and taking accountability for the outcome.
+      <p class="hero__copy fade-in" data-d="2">
+        We manage the full delivery of commercial fitouts — holding the programme,
+        coordinating every consultant, and taking accountability for the outcome.
       </p>
-      <a href="#contact" class="btn fade-in" data-delay="3">Start a Conversation</a>
+      <a href="#contact" class="btn fade-in" data-d="3">Start a Conversation</a>
     </div>
-    <div class="hero__scroll fade-in" data-delay="4" aria-hidden="true">
-      <span class="hero__scroll-line"></span>
-    </div>
+
+    <span class="hero__bar fade-in" data-d="4" aria-hidden="true"></span>
   </section>
 
-  <!-- ═══════════════════════════════════
-       02 — POSITIONING
-  ═══════════════════════════════════ -->
-  <section class="positioning">
+
+  <!-- ─────────────────────────────────
+       02  POSITIONING
+  ───────────────────────────────── -->
+  <section class="positioning" aria-label="Positioning">
     <div class="positioning__inner">
       <p class="positioning__lead reveal">
         We are not a builder who manages some trades.
       </p>
-      <p class="positioning__sub reveal" data-delay="1">
+      <p class="positioning__sub reveal" data-d="1">
         We are a construction management firm —<br>
         responsible for every decision that shapes the outcome.
       </p>
     </div>
   </section>
 
-  <!-- ═══════════════════════════════════
-       03 — IMAGE BREAK
-  ═══════════════════════════════════ -->
-  <section class="image-break">
-    <div class="parallax-wrap">
-      <div class="parallax-img" style="background-image: url('assets/images/break.jpg');"></div>
-    </div>
-  </section>
 
-  <!-- ═══════════════════════════════════
-       04 — SERVICES
-  ═══════════════════════════════════ -->
-  <section class="services" id="services">
-    <div class="services__header">
-      <span class="label reveal">Services</span>
+  <!-- ─────────────────────────────────
+       03  IMAGE BREAK
+  ───────────────────────────────── -->
+  <div class="imgbreak" aria-hidden="true">
+    <div class="imgbreak__inner parallax" style="background-image:url('break.jpg')"></div>
+  </div>
+
+
+  <!-- ─────────────────────────────────
+       04  SERVICES
+  ───────────────────────────────── -->
+  <section class="services" id="services" aria-label="Services">
+    <div class="services__head">
+      <span class="eyebrow reveal">Services</span>
     </div>
+
     <div class="services__grid">
 
-      <div class="service-card reveal">
-        <div class="service-card__bg" style="background-image: url('assets/images/service-1.jpg');"></div>
-        <div class="service-card__overlay"></div>
-        <span class="service-card__title">Commercial Fitout</span>
-      </div>
+      <article class="svc reveal">
+        <div class="svc__bg" style="background-image:url('service-1.jpg')"></div>
+        <div class="svc__film"></div>
+        <h3 class="svc__title">Commercial Fitout</h3>
+      </article>
 
-      <div class="service-card reveal" data-delay="1">
-        <div class="service-card__bg" style="background-image: url('assets/images/service-2.jpg');"></div>
-        <div class="service-card__overlay"></div>
-        <span class="service-card__title">Retail &amp; Hospitality</span>
-      </div>
+      <article class="svc reveal" data-d="1">
+        <div class="svc__bg" style="background-image:url('service-2.jpg')"></div>
+        <div class="svc__film"></div>
+        <h3 class="svc__title">Retail &amp; Hospitality</h3>
+      </article>
 
-      <div class="service-card reveal" data-delay="2">
-        <div class="service-card__bg" style="background-image: url('assets/images/service-3.jpg');"></div>
-        <div class="service-card__overlay"></div>
-        <span class="service-card__title">Industrial Refurbishment</span>
-      </div>
+      <article class="svc reveal">
+        <div class="svc__bg" style="background-image:url('service-3.jpg')"></div>
+        <div class="svc__film"></div>
+        <h3 class="svc__title">Industrial Refurbishment</h3>
+      </article>
 
-      <div class="service-card reveal" data-delay="1">
-        <div class="service-card__bg" style="background-image: url('assets/images/service-4.jpg');"></div>
-        <div class="service-card__overlay"></div>
-        <span class="service-card__title">Workplace Fitout</span>
-      </div>
+      <article class="svc reveal" data-d="1">
+        <div class="svc__bg" style="background-image:url('service-1.jpg'); background-position:center 25%"></div>
+        <div class="svc__film"></div>
+        <h3 class="svc__title">Workplace Fitout</h3>
+      </article>
 
-      <div class="service-card reveal" data-delay="2">
-        <div class="service-card__bg" style="background-image: url('assets/images/service-5.jpg');"></div>
-        <div class="service-card__overlay"></div>
-        <span class="service-card__title">Head Contracting</span>
-      </div>
+      <article class="svc reveal">
+        <div class="svc__bg" style="background-image:url('service-2.jpg'); background-position:center 65%"></div>
+        <div class="svc__film"></div>
+        <h3 class="svc__title">Head Contracting</h3>
+      </article>
 
-      <div class="service-card reveal" data-delay="3">
-        <div class="service-card__bg" style="background-image: url('assets/images/service-6.jpg');"></div>
-        <div class="service-card__overlay"></div>
-        <span class="service-card__title">Make Good &amp; Tenancy Works</span>
-      </div>
+      <article class="svc reveal" data-d="1">
+        <div class="svc__bg" style="background-image:url('service-3.jpg'); background-position:center 40%"></div>
+        <div class="svc__film"></div>
+        <h3 class="svc__title">Make Good &amp; Tenancy Works</h3>
+      </article>
 
     </div>
   </section>
 
-  <!-- ═══════════════════════════════════
-       05 — HOW WE DELIVER
-  ═══════════════════════════════════ -->
-  <section class="deliver" id="process">
-    <div class="deliver__image reveal">
-      <img src="assets/images/process.jpg" alt="Construction management in progress">
+
+  <!-- ─────────────────────────────────
+       05  PROCESS
+  ───────────────────────────────── -->
+  <section class="split" id="process" aria-label="Our process">
+    <div class="split__media reveal">
+      <img src="process.jpg" alt="Construction drawings and planning on site" loading="lazy">
     </div>
-    <div class="deliver__text">
-      <h2 class="deliver__heading reveal">
+
+    <div class="split__body">
+      <h2 class="split__heading reveal">
         The same process.<br>Every single time.
       </h2>
-      <ol class="process-list" aria-label="Our process">
-        <li class="process-list__item reveal" data-delay="1">
-          <span class="process-list__num">01</span>
-          <span class="process-list__step">Brief &amp; Scope</span>
+      <ol class="steps" aria-label="Delivery process">
+        <li class="steps__row reveal" data-d="1">
+          <span class="steps__num">01</span>
+          <span class="steps__label">Brief &amp; Scope</span>
         </li>
-        <li class="process-list__item reveal" data-delay="2">
-          <span class="process-list__num">02</span>
-          <span class="process-list__step">Programme &amp; Procurement</span>
+        <li class="steps__row reveal" data-d="2">
+          <span class="steps__num">02</span>
+          <span class="steps__label">Programme &amp; Procurement</span>
         </li>
-        <li class="process-list__item reveal" data-delay="3">
-          <span class="process-list__num">03</span>
-          <span class="process-list__step">Delivery</span>
+        <li class="steps__row reveal" data-d="3">
+          <span class="steps__num">03</span>
+          <span class="steps__label">Delivery</span>
         </li>
-        <li class="process-list__item reveal" data-delay="4">
-          <span class="process-list__num">04</span>
-          <span class="process-list__step">Handover</span>
+        <li class="steps__row reveal" data-d="4">
+          <span class="steps__num">04</span>
+          <span class="steps__label">Handover</span>
         </li>
       </ol>
     </div>
   </section>
 
-  <!-- ═══════════════════════════════════
-       06 — THE FIRM
-  ═══════════════════════════════════ -->
-  <section class="firm" id="about">
-    <div class="firm__text">
-      <h2 class="firm__heading reveal">
+
+  <!-- ─────────────────────────────────
+       06  THE FIRM
+  ───────────────────────────────── -->
+  <section class="split split--flip" id="about" aria-label="The firm">
+    <div class="split__body split__body--light">
+      <h2 class="split__heading reveal">
         A person — not a job number —<br>who knows your project.
       </h2>
-      <p class="firm__body reveal" data-delay="1">
+      <p class="split__text reveal" data-d="1">
         We tell you what we see.<br>
         We hold the line on standard.<br>
         We take responsibility for the outcome.
       </p>
     </div>
-    <div class="firm__image reveal">
-      <img src="assets/images/firm.jpg" alt="The Suvera team at work">
+
+    <div class="split__media reveal">
+      <img src="site.jpg" alt="Suvera construction management on site" loading="lazy">
     </div>
   </section>
 
-  <!-- ═══════════════════════════════════
-       07 — STATEMENT
-  ═══════════════════════════════════ -->
-  <section class="statement">
-    <div class="statement__inner">
-      <blockquote class="statement__quote reveal">
-        &ldquo;The brief does not determine our standard.<br>We do.&rdquo;
-      </blockquote>
-    </div>
+
+  <!-- ─────────────────────────────────
+       07  STATEMENT
+  ───────────────────────────────── -->
+  <section class="statement" aria-label="Brand statement">
+    <div class="statement__bg parallax-stmt" style="background-image:url('statement.jpg')" aria-hidden="true"></div>
+    <div class="statement__veil" aria-hidden="true"></div>
+    <blockquote class="statement__quote reveal">
+      &ldquo;The brief does not determine our standard.<br>We do.&rdquo;
+    </blockquote>
   </section>
 
-  <!-- ═══════════════════════════════════
-       08 — CONTACT
-  ═══════════════════════════════════ -->
-  <section class="contact" id="contact">
+
+  <!-- ─────────────────────────────────
+       08  CONTACT
+  ───────────────────────────────── -->
+  <section class="contact" id="contact" aria-label="Contact">
     <div class="contact__inner">
-      <h2 class="contact__heading reveal">Tell us about your project.</h2>
-      <p class="contact__body reveal" data-delay="1">
+      <h2 class="contact__heading reveal">Tell us about<br>your project.</h2>
+      <p class="contact__copy reveal" data-d="1">
         No automated replies.<br>
         No account managers.<br>
         A straight conversation.
       </p>
-      <a href="mailto:info@suvera.com.au" class="contact__email reveal" data-delay="2">
+      <a class="contact__email reveal" data-d="2" href="mailto:info@suvera.com.au">
         info@suvera.com.au
       </a>
     </div>
   </section>
 
-  <!-- ═══════════════════════════════════
+
+  <!-- ─────────────────────────────────
        FOOTER
-  ═══════════════════════════════════ -->
+  ───────────────────────────────── -->
   <footer class="footer">
-    <div class="footer__inner">
-      <span class="footer__logo">SUVERA</span>
-      <span class="footer__city">Sydney, Australia</span>
-      <span class="footer__copy">&copy; 2025 Suvera Pty Ltd</span>
-    </div>
+    <span class="footer__logo">SUVERA</span>
+    <span class="footer__location">Sydney, Australia</span>
+    <span class="footer__copy">&copy; 2025 Suvera Pty Ltd</span>
   </footer>
+
 
   <script src="assets/js/main.js"></script>
 </body>
