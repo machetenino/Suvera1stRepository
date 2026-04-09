@@ -3,216 +3,494 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>SUVERA — Construction Management, Sydney</title>
-  <meta name="description" content="SUVERA is a Sydney-based construction management firm. One firm. Responsible for every part of it.">
+  <title>Suvera Projects Group — Considered Construction. Sydney.</title>
+  <meta name="description" content="Suvera is a Sydney construction management firm. We manage the full delivery of commercial fitouts, workplace, retail, hospitality and industrial projects — assembling the right consultants, designers and trades, and taking accountability for the outcome.">
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500&display=swap" rel="stylesheet">
+  <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,300;0,400;0,500;0,600;1,300;1,400;1,500;1,600&family=Jost:wght@300;400;500&display=swap" rel="stylesheet">
   <link rel="stylesheet" href="assets/css/style.css">
 </head>
 <body>
 
-  <!-- ─────────────────────────────────
-       NAV
-  ───────────────────────────────── -->
-  <nav class="nav" id="nav" aria-label="Site navigation">
-    <a href="#top" class="nav__logo">SUVERA</a>
-    <a href="#contact" class="nav__link">Contact</a>
-  </nav>
+
+  <!-- ════════════════════════════════════
+       HEADER
+  ════════════════════════════════════ -->
+  <header class="header" id="header">
+    <div class="header__inner">
+      <a href="#top" class="header__logo" aria-label="Suvera home">SUVERA</a>
+      <nav class="header__nav" aria-label="Primary navigation">
+        <a href="#services" class="header__link">Services</a>
+        <a href="#about" class="header__link">About</a>
+        <a href="#contact" class="header__cta">Enquire</a>
+      </nav>
+    </div>
+  </header>
 
 
-  <!-- ─────────────────────────────────
+  <!-- ════════════════════════════════════
        01  HERO
-  ───────────────────────────────── -->
+  ════════════════════════════════════ -->
   <section class="hero" id="top" aria-label="Hero">
     <div class="hero__bg" aria-hidden="true">
       <div class="hero__img" style="background-image:url('hero.png')"></div>
-      <div class="hero__veil"></div>
+      <div class="hero__overlay"></div>
     </div>
-
     <div class="hero__content">
-      <h1 class="hero__wordmark fade-in" data-d="0">SUVERA</h1>
-      <p class="hero__headline fade-in" data-d="1">
-        One firm.<br>
-        Responsible for every part of it.
-      </p>
+      <span class="hero__eyebrow fade-in" data-d="0">Sydney, NSW &middot; Construction Management</span>
+      <h1 class="hero__headline fade-in" data-d="1">
+        The right team.<br>
+        The right trades.<br>
+        One accountable firm.
+      </h1>
       <p class="hero__copy fade-in" data-d="2">
-        We manage the full delivery of commercial fitouts — holding the programme,
-        coordinating every consultant, and taking accountability for the outcome.
+        We manage the full delivery of commercial fitouts, workplace, retail,
+        hospitality and industrial projects &mdash; assembling the right consultants,
+        designers and trades, and taking accountability for the outcome.
       </p>
-      <a href="#contact" class="btn fade-in" data-d="3">Start a Conversation</a>
-    </div>
-
-    <span class="hero__bar fade-in" data-d="4" aria-hidden="true"></span>
-  </section>
-
-
-  <!-- ─────────────────────────────────
-       02  POSITIONING
-  ───────────────────────────────── -->
-  <section class="positioning" aria-label="Positioning">
-    <div class="positioning__inner">
-      <p class="positioning__lead reveal">
-        We are not a builder who manages some trades.
-      </p>
-      <p class="positioning__sub reveal" data-d="1">
-        We are a construction management firm —<br>
-        responsible for every decision that shapes the outcome.
-      </p>
+      <a href="#contact" class="btn btn--outline fade-in" data-d="3">Start a conversation</a>
+      <p class="hero__tagline fade-in" data-d="4">Considered construction.</p>
     </div>
   </section>
 
 
-  <!-- ─────────────────────────────────
+  <!-- ════════════════════════════════════
+       02  INTRO STRIP
+  ════════════════════════════════════ -->
+  <section class="intro" aria-label="Positioning">
+    <div class="intro__inner">
+      <div class="intro__left reveal">
+        <p class="intro__display">
+          Construction management means something specific. It means one firm
+          is responsible &mdash; not just for what gets built, but for every
+          decision that shapes it.
+        </p>
+      </div>
+      <div class="intro__right reveal" data-d="1">
+        <p class="intro__body">
+          We are not a builder who manages some trades. We are a construction
+          management firm &mdash; which means we hold the programme, coordinate
+          the consultants, engage the right specialist trades, and remain
+          accountable for the full outcome. Our clients are asset owners,
+          corporate tenants, and the interior design studios who trust us
+          with their best work.
+        </p>
+      </div>
+    </div>
+  </section>
+
+
+  <!-- ════════════════════════════════════
        03  IMAGE BREAK
-  ───────────────────────────────── -->
+  ════════════════════════════════════ -->
   <div class="imgbreak" aria-hidden="true">
     <div class="imgbreak__inner parallax" style="background-image:url('break.png')"></div>
   </div>
 
 
-  <!-- ─────────────────────────────────
+  <!-- ════════════════════════════════════
        04  SERVICES
-  ───────────────────────────────── -->
+  ════════════════════════════════════ -->
   <section class="services" id="services" aria-label="Services">
+
     <div class="services__head">
-      <span class="eyebrow reveal">Services</span>
+      <div class="services__head-inner">
+        <span class="label reveal">What we deliver</span>
+      </div>
     </div>
 
-    <div class="services__grid">
+    <!-- 01 Commercial Fitout -->
+    <div class="svc-split svc-split--img-left reveal">
+      <div class="svc-split__media">
+        <img src="service-1.png" alt="Commercial fitout — A-grade office environment" loading="lazy">
+      </div>
+      <div class="svc-split__body">
+        <span class="svc-split__num">01</span>
+        <h3 class="svc-split__title">Commercial Fitout</h3>
+        <p class="svc-split__copy">
+          A-grade and commercial office environments delivered end to end. We manage
+          the full scope &mdash; design consultants, services engineers, specialist
+          trades &mdash; and remain the single point of accountability through to
+          practical completion.
+        </p>
+        <p class="svc-split__tags">Corporate offices &middot; A-grade tenancies &middot; Base building works</p>
+      </div>
+    </div>
 
-      <article class="svc reveal">
-        <div class="svc__bg" style="background-image:url('service-1.png')"></div>
-        <div class="svc__film"></div>
-        <h3 class="svc__title">Commercial Fitout</h3>
-      </article>
+    <!-- 02 Retail & Hospitality -->
+    <div class="svc-split svc-split--img-right reveal">
+      <div class="svc-split__body">
+        <span class="svc-split__num">02</span>
+        <h3 class="svc-split__title">Retail &amp; Hospitality</h3>
+        <p class="svc-split__copy">
+          Bars, restaurants, caf&eacute;s, and retail environments. We work closely
+          with interior designers to protect the design intent all the way through
+          construction. Nothing is value-engineered without a conversation first.
+        </p>
+        <p class="svc-split__tags">Restaurants &middot; Bars &middot; Caf&eacute;s &middot; Retail &middot; Brand environments</p>
+      </div>
+      <div class="svc-split__media">
+        <img src="service-2.png" alt="Retail and hospitality fitout" loading="lazy">
+      </div>
+    </div>
 
-      <article class="svc reveal" data-d="1">
-        <div class="svc__bg" style="background-image:url('service-2.png')"></div>
-        <div class="svc__film"></div>
-        <h3 class="svc__title">Retail &amp; Hospitality</h3>
-      </article>
+    <!-- 03 Industrial Refurbishment -->
+    <div class="svc-split svc-split--img-left reveal">
+      <div class="svc-split__media">
+        <img src="service-3.png" alt="Industrial refurbishment" loading="lazy">
+      </div>
+      <div class="svc-split__body">
+        <span class="svc-split__num">03</span>
+        <h3 class="svc-split__title">Industrial Refurbishment</h3>
+        <p class="svc-split__copy">
+          Warehouse upgrades, base building refurbishments, and industrial fitouts.
+          Often unglamorous. Always held to the same standard as our A-grade work
+          &mdash; because the brief doesn&rsquo;t determine our standard. We do.
+        </p>
+        <p class="svc-split__tags">Warehouses &middot; Industrial fitout &middot; Base building upgrades</p>
+      </div>
+    </div>
 
-      <article class="svc reveal">
-        <div class="svc__bg" style="background-image:url('service-3.png')"></div>
-        <div class="svc__film"></div>
-        <h3 class="svc__title">Industrial Refurbishment</h3>
-      </article>
+    <!-- 04–06 Text rows -->
+    <div class="svc-list" aria-label="Further services">
 
-      <article class="svc reveal" data-d="1">
-        <div class="svc__bg" style="background-image:url('service-1.png'); background-position:center 25%"></div>
-        <div class="svc__film"></div>
-        <h3 class="svc__title">Workplace Fitout</h3>
-      </article>
+      <div class="svc-list__item reveal">
+        <div class="svc-list__left">
+          <span class="svc-list__num">04</span>
+          <h3 class="svc-list__title">Workplace Fitout</h3>
+        </div>
+        <div class="svc-list__right">
+          <p class="svc-list__copy">
+            Purposeful environments built for the people who use them. We manage every
+            consultant, every trade, every interface and every timeline &mdash; so the
+            business keeps running while we run the build.
+          </p>
+          <p class="svc-list__tags">Corporate workplaces &middot; Fitout &middot; Refurbishment</p>
+        </div>
+      </div>
 
-      <article class="svc reveal">
-        <div class="svc__bg" style="background-image:url('service-2.png'); background-position:center 65%"></div>
-        <div class="svc__film"></div>
-        <h3 class="svc__title">Head Contracting</h3>
-      </article>
+      <div class="svc-list__item reveal" data-d="1">
+        <div class="svc-list__left">
+          <span class="svc-list__num">05</span>
+          <h3 class="svc-list__title">Head Contracting</h3>
+        </div>
+        <div class="svc-list__right">
+          <p class="svc-list__copy">
+            We take on head contractor responsibility for the full scope &mdash;
+            programme, subcontractors, compliance, documentation &mdash; and remain
+            accountable through to final handover and the defects liability period.
+          </p>
+          <p class="svc-list__tags">Head contractor &middot; Programme management &middot; Compliance</p>
+        </div>
+      </div>
 
-      <article class="svc reveal" data-d="1">
-        <div class="svc__bg" style="background-image:url('service-3.png'); background-position:center 40%"></div>
-        <div class="svc__film"></div>
-        <h3 class="svc__title">Make Good &amp; Tenancy Works</h3>
-      </article>
+      <div class="svc-list__item reveal" data-d="2">
+        <div class="svc-list__left">
+          <span class="svc-list__num">06</span>
+          <h3 class="svc-list__title">Make Good &amp; Tenancy Works</h3>
+        </div>
+        <div class="svc-list__right">
+          <p class="svc-list__copy">
+            Make goods, base building upgrades, and works in occupied tenancies.
+            We plan around your operations, not the other way around. Our construction
+            happens inside someone&rsquo;s business &mdash; we treat it accordingly.
+          </p>
+          <p class="svc-list__tags">Make good &middot; Tenancy works &middot; Occupied environments</p>
+        </div>
+      </div>
 
     </div>
   </section>
 
 
-  <!-- ─────────────────────────────────
-       05  PROCESS
-  ───────────────────────────────── -->
-  <section class="split" id="process" aria-label="Our process">
-    <div class="split__media reveal">
-      <img src="process.png" alt="Construction drawings and planning on site" loading="lazy">
-    </div>
+  <!-- ════════════════════════════════════
+       05  ABOUT / THE FIRM
+  ════════════════════════════════════ -->
+  <section class="about" id="about" aria-label="About Suvera">
+    <div class="about__inner">
 
-    <div class="split__body">
-      <h2 class="split__heading reveal">
-        The same process.<br>Every single time.
-      </h2>
-      <ol class="steps" aria-label="Delivery process">
-        <li class="steps__row reveal" data-d="1">
-          <span class="steps__num">01</span>
-          <span class="steps__label">Brief &amp; Scope</span>
-        </li>
-        <li class="steps__row reveal" data-d="2">
-          <span class="steps__num">02</span>
-          <span class="steps__label">Programme &amp; Procurement</span>
-        </li>
-        <li class="steps__row reveal" data-d="3">
-          <span class="steps__num">03</span>
-          <span class="steps__label">Delivery</span>
-        </li>
-        <li class="steps__row reveal" data-d="4">
-          <span class="steps__num">04</span>
-          <span class="steps__label">Handover</span>
-        </li>
-      </ol>
+      <div class="about__text">
+        <span class="label reveal">The firm</span>
+        <h2 class="about__heading reveal">Responsible for every part of it.</h2>
+
+        <div class="about__body reveal" data-d="1">
+          <p>
+            Suvera is a Sydney construction management firm. Our model is
+            straightforward: we take on the project and we are answerable for how
+            it is delivered. We engage the right consultants, designers and specialist
+            trades for each job &mdash; coordinate them, hold them to programme, and
+            take responsibility for the outcome so our clients don&rsquo;t have to
+            manage the pieces themselves.
+          </p>
+          <p>
+            We work across commercial fitout, workplace, retail, hospitality and
+            industrial refurbishment. The type of project does not change how we work.
+            The same process, the same rigour, the same accountability &mdash; whether
+            it is an A-grade CBD office or a warehouse in Western Sydney.
+          </p>
+          <p>
+            If something changes on site &mdash; scope, programme, cost &mdash; you
+            hear it from us before it becomes a problem. That is the commitment we
+            make at the start of every project.
+          </p>
+        </div>
+
+        <dl class="values reveal" data-d="2" aria-label="Our values">
+          <div class="values__item">
+            <dt class="values__term">Present</dt>
+            <dd class="values__def">There is always a person &mdash; not a job number &mdash; who knows your project and is reachable.</dd>
+          </div>
+          <div class="values__item">
+            <dt class="values__term">Straight</dt>
+            <dd class="values__def">We tell you what we see, not what you want to hear.</dd>
+          </div>
+          <div class="values__item">
+            <dt class="values__term">Consistent</dt>
+            <dd class="values__def">The brief doesn&rsquo;t determine our standard. We do.</dd>
+          </div>
+          <div class="values__item">
+            <dt class="values__term">Discreet</dt>
+            <dd class="values__def">We work inside your client&rsquo;s business. We don&rsquo;t add noise.</dd>
+          </div>
+          <div class="values__item">
+            <dt class="values__term">Craftwise</dt>
+            <dd class="values__def">We read drawings carefully. We ask before we deviate.</dd>
+          </div>
+          <div class="values__item">
+            <dt class="values__term">Earned</dt>
+            <dd class="values__def">Our reputation is built project by project. No shortcuts.</dd>
+          </div>
+        </dl>
+      </div>
+
+      <div class="about__media reveal" data-d="1">
+        <img src="site.png" alt="Suvera construction management on site" loading="lazy">
+      </div>
+
     </div>
   </section>
 
 
-  <!-- ─────────────────────────────────
-       06  THE FIRM
-  ───────────────────────────────── -->
-  <section class="split split--flip" id="about" aria-label="The firm">
-    <div class="split__body split__body--light">
-      <h2 class="split__heading reveal">
-        A person — not a job number —<br>who knows your project.
-      </h2>
-      <p class="split__text reveal" data-d="1">
-        We tell you what we see.<br>
-        We hold the line on standard.<br>
-        We take responsibility for the outcome.
-      </p>
-    </div>
-
-    <div class="split__media reveal">
-      <img src="site.png" alt="Suvera construction management on site" loading="lazy">
+  <!-- ════════════════════════════════════
+       06  PROCESS
+  ════════════════════════════════════ -->
+  <section class="process" aria-label="How we work">
+    <div class="process__inner">
+      <div class="process__media reveal">
+        <img src="process.png" alt="Construction planning and documentation" loading="lazy">
+      </div>
+      <div class="process__body">
+        <span class="label reveal">How we work</span>
+        <h2 class="process__heading reveal">
+          The same process.<br>Every single time.
+        </h2>
+        <ol class="steps reveal" data-d="1" aria-label="Our delivery process">
+          <li class="steps__item">
+            <span class="steps__num">01</span>
+            <span class="steps__label">Brief &amp; Scope</span>
+          </li>
+          <li class="steps__item">
+            <span class="steps__num">02</span>
+            <span class="steps__label">Programme &amp; Procurement</span>
+          </li>
+          <li class="steps__item">
+            <span class="steps__num">03</span>
+            <span class="steps__label">Delivery</span>
+          </li>
+          <li class="steps__item">
+            <span class="steps__num">04</span>
+            <span class="steps__label">Handover</span>
+          </li>
+        </ol>
+      </div>
     </div>
   </section>
 
 
-  <!-- ─────────────────────────────────
+  <!-- ════════════════════════════════════
        07  STATEMENT
-  ───────────────────────────────── -->
+  ════════════════════════════════════ -->
   <section class="statement" aria-label="Brand statement">
     <div class="statement__bg parallax-stmt" style="background-image:url('statement.png')" aria-hidden="true"></div>
-    <div class="statement__veil" aria-hidden="true"></div>
+    <div class="statement__overlay" aria-hidden="true"></div>
     <blockquote class="statement__quote reveal">
-      &ldquo;The brief does not determine our standard.<br>We do.&rdquo;
+      The brief does not determine our standard.<br>We do.
     </blockquote>
   </section>
 
 
-  <!-- ─────────────────────────────────
-       08  CONTACT
-  ───────────────────────────────── -->
-  <section class="contact" id="contact" aria-label="Contact">
-    <div class="contact__inner">
-      <h2 class="contact__heading reveal">Tell us about<br>your project.</h2>
-      <p class="contact__copy reveal" data-d="1">
-        No automated replies.<br>
-        No account managers.<br>
-        A straight conversation.
+  <!-- ════════════════════════════════════
+       08  NAME ORIGIN
+  ════════════════════════════════════ -->
+  <section class="name-origin" aria-label="The name Suvera">
+    <div class="name-origin__inner">
+      <span class="label reveal">The name</span>
+      <h2 class="name-origin__heading reveal">Suvera. The genuinely good.</h2>
+      <p class="name-origin__body reveal" data-d="1">
+        SUVERA comes from Sanskrit. SU (&#x938;&#x941;) means good, noble and
+        auspicious &mdash; something done well, with care. VERA (&#x935;&#x940;&#x930;)
+        means true, brave and genuine &mdash; the same root as the Latin
+        <em>verus</em> (truth) and the Slavic <em>vera</em> (faith). The genuinely
+        good. That is the standard we set before we built a single thing &mdash; and
+        the one we are held to on every project.
       </p>
-      <a class="contact__email reveal" data-d="2" href="mailto:info@suvera.com.au">
-        info@suvera.com.au
-      </a>
+
+      <div class="etymology reveal" data-d="2" role="table" aria-label="Etymology of the name Suvera">
+        <div class="etymology__row etymology__row--head" role="row">
+          <span role="columnheader">Origin</span>
+          <span role="columnheader">Script</span>
+          <span role="columnheader">Root</span>
+          <span role="columnheader">Meaning</span>
+        </div>
+        <div class="etymology__row" role="row">
+          <span role="cell">Sanskrit</span>
+          <span role="cell" lang="sa">&#x938;&#x941;</span>
+          <span role="cell">SU</span>
+          <span role="cell">Good &middot; noble &middot; auspicious &middot; well-done</span>
+        </div>
+        <div class="etymology__row" role="row">
+          <span role="cell">Sanskrit</span>
+          <span role="cell" lang="sa">&#x935;&#x940;&#x930;</span>
+          <span role="cell">VERA</span>
+          <span role="cell">True &middot; brave &middot; hero &middot; genuine</span>
+        </div>
+        <div class="etymology__row" role="row">
+          <span role="cell">Latin</span>
+          <span role="cell"><em>verus</em></span>
+          <span role="cell">&mdash;</span>
+          <span role="cell">True &middot; real &middot; genuine</span>
+        </div>
+        <div class="etymology__row" role="row">
+          <span role="cell">Slavic</span>
+          <span role="cell" lang="ru">&#x432;&#x435;&#x440;&#x430;</span>
+          <span role="cell">&mdash;</span>
+          <span role="cell">Faith &middot; belief &middot; trust</span>
+        </div>
+      </div>
     </div>
   </section>
 
 
-  <!-- ─────────────────────────────────
+  <!-- ════════════════════════════════════
+       09  CONTACT
+  ════════════════════════════════════ -->
+  <section class="contact" id="contact" aria-label="Contact Suvera">
+    <div class="contact__inner">
+
+      <div class="contact__info">
+        <span class="label reveal">Get in touch</span>
+        <h2 class="contact__heading reveal">Tell us about<br>your project.</h2>
+        <p class="contact__intro reveal" data-d="1">
+          Use the form or email us directly at
+          <a href="mailto:info@suvera.com.au">info@suvera.com.au</a>.
+          We respond within one business day &mdash; no automated replies,
+          no account managers. A straight conversation about whether we are
+          the right firm for your project.
+        </p>
+        <address class="contact__details reveal" data-d="2">
+          <p>Email &mdash; <a href="mailto:info@suvera.com.au">info@suvera.com.au</a></p>
+          <p>Website &mdash; suvera.com.au</p>
+          <p>Address &mdash; Suite 848, Level 8 &middot; 25 Restwell St &middot; Bankstown NSW 2200</p>
+        </address>
+      </div>
+
+      <form
+        class="contact__form reveal"
+        id="contactForm"
+        action="https://formspree.io/f/YOUR_FORM_ID"
+        method="POST"
+        novalidate
+        aria-label="Enquiry form"
+      >
+        <div class="form-row form-row--2">
+          <div class="form-field">
+            <label for="f-name">Name</label>
+            <input type="text" id="f-name" name="name" required autocomplete="name">
+          </div>
+          <div class="form-field">
+            <label for="f-company">Company</label>
+            <input type="text" id="f-company" name="company" autocomplete="organization">
+          </div>
+        </div>
+        <div class="form-row form-row--2">
+          <div class="form-field">
+            <label for="f-email">Email</label>
+            <input type="email" id="f-email" name="email" required autocomplete="email">
+          </div>
+          <div class="form-field">
+            <label for="f-phone">Phone</label>
+            <input type="tel" id="f-phone" name="phone" autocomplete="tel">
+          </div>
+        </div>
+        <div class="form-row form-row--2">
+          <div class="form-field">
+            <label for="f-type">Project type</label>
+            <div class="select-wrap">
+              <select id="f-type" name="project_type">
+                <option value="" disabled selected></option>
+                <option>Commercial fitout</option>
+                <option>Workplace fitout</option>
+                <option>Retail fitout</option>
+                <option>Hospitality fitout</option>
+                <option>Industrial refurbishment</option>
+                <option>Make good &amp; tenancy works</option>
+                <option>Other</option>
+              </select>
+            </div>
+          </div>
+          <div class="form-field">
+            <label for="f-value">Approximate value</label>
+            <div class="select-wrap">
+              <select id="f-value" name="project_value">
+                <option value="" disabled selected></option>
+                <option>Under $100k</option>
+                <option>$100k&ndash;$250k</option>
+                <option>$250k&ndash;$500k</option>
+                <option>$500k&ndash;$1M</option>
+                <option>Over $1M</option>
+                <option>Not sure yet</option>
+              </select>
+            </div>
+          </div>
+        </div>
+        <div class="form-row">
+          <div class="form-field">
+            <label for="f-message">Tell us about the project</label>
+            <textarea
+              id="f-message"
+              name="message"
+              rows="5"
+              placeholder="Location, scope, timing &mdash; anything that helps us understand the brief&#8230;"
+            ></textarea>
+          </div>
+        </div>
+        <div class="form-submit">
+          <button type="submit" class="btn btn--solid">Send enquiry</button>
+          <span class="form__note">We respond within one business day.</span>
+        </div>
+        <div class="form__success" id="formSuccess" hidden role="status">
+          Thank you. We have received your enquiry and will be in touch within one business day.
+        </div>
+      </form>
+
+    </div>
+  </section>
+
+
+  <!-- ════════════════════════════════════
        FOOTER
-  ───────────────────────────────── -->
+  ════════════════════════════════════ -->
   <footer class="footer">
-    <span class="footer__logo">SUVERA</span>
-    <span class="footer__location">Sydney, Australia</span>
-    <span class="footer__copy">&copy; 2025 Suvera Pty Ltd</span>
+    <div class="footer__inner">
+      <div class="footer__brand">
+        <span class="footer__logo">SUVERA</span>
+        <span class="footer__tagline">Considered construction.</span>
+      </div>
+      <p class="footer__legal">
+        Suvera Projects Group Pty Ltd &middot; ABN 90&nbsp;695&nbsp;741&nbsp;667
+        &middot; &copy; 2026 &middot; Sydney, NSW
+      </p>
+    </div>
   </footer>
 
 

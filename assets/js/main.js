@@ -1,115 +1,136 @@
-/* ══════════════════════════════════════════════
-   SUVERA  ·  Main Script
-   - Nav slim on scroll
-   - Scroll reveal (IntersectionObserver)
-   - Parallax: image break + statement bg
-   - Smooth anchor scroll
-══════════════════════════════════════════════ */
+/* ══════════════════════════════════════════════════════
+   SUVERA — Main Script
+   1. Header scroll state
+   2. Scroll reveal (IntersectionObserver)
+   3. Parallax: image break + statement bg
+   4. Contact form (Formspree + success state)
+══════════════════════════════════════════════════════ */
 
 'use strict';
 
-/* ─────────────────────────────────
-   NAV — slim on scroll
-───────────────────────────────── */
-(function () {
-  const nav = document.getElementById('nav');
-  if (!nav) return;
 
-  const update = () => nav.classList.toggle('slim', window.scrollY > 60);
+/* ─────────────────────────────────────────────
+   1. HEADER — background appears on scroll
+───────────────────────────────────────────── */
+(function () {
+  const header = document.getElementById('header');
+  if (!header) return;
+
+  const update = () => header.classList.toggle('scrolled', window.scrollY > 40);
+
   window.addEventListener('scroll', update, { passive: true });
   update();
 }());
 
 
-/* ─────────────────────────────────
-   SCROLL REVEAL
-───────────────────────────────── */
+/* ─────────────────────────────────────────────
+   2. SCROLL REVEAL
+───────────────────────────────────────────── */
 (function () {
   const els = document.querySelectorAll('.reveal');
   if (!els.length) return;
 
   const io = new IntersectionObserver(
     (entries) => {
-      entries.forEach((e) => {
-        if (e.isIntersecting) {
-          e.target.classList.add('in');
-          io.unobserve(e.target);
+      entries.forEach((entry) => {
+        if (entry.isIntersecting) {
+          entry.target.classList.add('in');
+          io.unobserve(entry.target);
         }
       });
     },
-    { threshold: 0.1, rootMargin: '0px 0px -48px 0px' }
+    { threshold: 0.08, rootMargin: '0px 0px -40px 0px' }
   );
 
   els.forEach((el) => io.observe(el));
 }());
 
 
-/* ─────────────────────────────────
-   PARALLAX
-   Uses rAF loop for smooth motion.
-   Applies to:
-     .parallax       → imgbreak inner
-     .parallax-stmt  → statement bg
-───────────────────────────────── */
+/* ─────────────────────────────────────────────
+   3. PARALLAX
+   image break (.parallax) + statement bg (.parallax-stmt)
+   Uses rAF with a ticking guard for smooth, low-cost animation.
+───────────────────────────────────────────── */
 (function () {
-  const vh = () => window.innerHeight;
-
-  // Compute offset for any parallax element
-  function getOffset(el, strength) {
-    const section = el.parentElement;
-    const r = section.getBoundingClientRect();
-    const h = vh();
-
-    // Skip elements fully off-screen
-    if (r.bottom < -100 || r.top > h + 100) return null;
-
-    // Progress: 0 when section bottom hits viewport top → 1 when section top hits viewport bottom
-    const progress = (h - r.top) / (h + r.height);
-    return ((progress - 0.5) * strength).toFixed(2);
-  }
-
   const breakEl = document.querySelector('.parallax');
   const stmtEl  = document.querySelector('.parallax-stmt');
+  if (!breakEl && !stmtEl) return;
 
   let ticking = false;
 
-  function onScroll() {
-    if (ticking) return;
-    ticking = true;
-
-    requestAnimationFrame(() => {
-      if (breakEl) {
-        const y = getOffset(breakEl, 110);
-        if (y !== null) breakEl.style.transform = `translateY(${y}px)`;
-      }
-
-      if (stmtEl) {
-        const y = getOffset(stmtEl, 80);
-        if (y !== null) stmtEl.style.transform = `translateY(${y}px)`;
-      }
-
-      ticking = false;
-    });
+  function calcOffset(el, strength) {
+    const rect = el.parentElement.getBoundingClientRect();
+    const vh   = window.innerHeight;
+    if (rect.bottom < -80 || rect.top > vh + 80) return null;
+    const progress = (vh - rect.top) / (vh + rect.height);
+    return ((progress - 0.5) * strength).toFixed(2);
   }
 
-  window.addEventListener('scroll', onScroll, { passive: true });
-  window.addEventListener('resize', onScroll, { passive: true });
-  onScroll();
+  function tick() {
+    if (breakEl) {
+      const y = calcOffset(breakEl, 110);
+      if (y !== null) breakEl.style.transform = `translateY(${y}px)`;
+    }
+    if (stmtEl) {
+      const y = calcOffset(stmtEl, 80);
+      if (y !== null) stmtEl.style.transform = `translateY(${y}px)`;
+    }
+    ticking = false;
+  }
+
+  window.addEventListener('scroll', () => {
+    if (!ticking) { requestAnimationFrame(tick); ticking = true; }
+  }, { passive: true });
+
+  window.addEventListener('resize', () => {
+    if (!ticking) { requestAnimationFrame(tick); ticking = true; }
+  }, { passive: true });
+
+  tick();
 }());
 
 
-/* ─────────────────────────────────
-   SMOOTH ANCHOR LINKS
-   (Polyfill for browsers that
-    don't respect scroll-behavior)
-───────────────────────────────── */
+/* ─────────────────────────────────────────────
+   4. CONTACT FORM
+   Submits to Formspree (replace YOUR_FORM_ID in the
+   action attribute with a real Formspree endpoint).
+   Shows inline success message on completion.
+───────────────────────────────────────────── */
 (function () {
-  document.querySelectorAll('a[href^="#"]').forEach((a) => {
-    a.addEventListener('click', (e) => {
-      const target = document.querySelector(a.getAttribute('href'));
-      if (!target) return;
-      e.preventDefault();
-      target.scrollIntoView({ behavior: 'smooth', block: 'start' });
-    });
+  const form    = document.getElementById('contactForm');
+  const success = document.getElementById('formSuccess');
+  if (!form || !success) return;
+
+  form.addEventListener('submit', async (e) => {
+    e.preventDefault();
+
+    const btn = form.querySelector('[type="submit"]');
+    const original = btn.textContent;
+    btn.textContent = 'Sending\u2026';
+    btn.disabled = true;
+
+    try {
+      const res = await fetch(form.action, {
+        method:  'POST',
+        body:    new FormData(form),
+        headers: { Accept: 'application/json' },
+      });
+
+      if (res.ok) {
+        form.reset();
+        success.hidden = false;
+        btn.closest('.form-submit').style.display = 'none';
+        success.scrollIntoView({ behavior: 'smooth', block: 'nearest' });
+      } else {
+        throw new Error('Server error');
+      }
+    } catch {
+      btn.textContent = original;
+      btn.disabled    = false;
+      alert(
+        'There was a problem sending your enquiry.\n' +
+        'Please email us directly at info@suvera.com.au'
+      );
+    }
   });
 }());
