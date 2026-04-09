@@ -1137,8 +1137,6 @@ button { cursor: pointer; font-family: inherit; }
 ══════════════════════════════════════════════════════ */
 @media (max-width: 640px) {
 
-  .header__link { display: none; }
-
   .svc-split__body {
     padding: 44px 28px;
   }
@@ -1177,6 +1175,111 @@ button { cursor: pointer; font-family: inherit; }
 .header__link--active {
   opacity: 0.45;
   pointer-events: none;
+}
+
+/* ── Mobile hamburger button ── */
+.header__menu-btn {
+  display:          none;
+  flex-direction:   column;
+  justify-content:  space-between;
+  width:            22px;
+  height:           14px;
+  background:       none;
+  border:           none;
+  padding:          0;
+  cursor:           pointer;
+  mix-blend-mode:   difference;
+  flex-shrink:      0;
+}
+.header__menu-btn span {
+  display:          block;
+  width:            100%;
+  height:           0.5px;
+  background:       var(--white);
+  transition:       transform 0.3s var(--ease), opacity 0.2s;
+  transform-origin: center;
+}
+.header__menu-btn[aria-expanded="true"] span:nth-child(1) {
+  transform: translateY(6.75px) rotate(45deg);
+}
+.header__menu-btn[aria-expanded="true"] span:nth-child(2) {
+  opacity: 0;
+  transform: scaleX(0);
+}
+.header__menu-btn[aria-expanded="true"] span:nth-child(3) {
+  transform: translateY(-6.75px) rotate(-45deg);
+}
+
+/* ── Mobile nav overlay ── */
+.mobile-nav {
+  position:        fixed;
+  inset:           0;
+  z-index:         150;
+  background:      rgba(10, 10, 10, 0.98);
+  display:         flex;
+  flex-direction:  column;
+  align-items:     center;
+  justify-content: center;
+  gap:             0;
+  opacity:         0;
+  pointer-events:  none;
+  transition:      opacity 0.35s var(--ease);
+}
+.mobile-nav.open {
+  opacity:        1;
+  pointer-events: all;
+}
+.mobile-nav__links {
+  display:        flex;
+  flex-direction: column;
+  align-items:    center;
+  gap:            0;
+  width:          100%;
+}
+.mobile-nav__links a {
+  display:        block;
+  font-family:    var(--fd);
+  font-size:      clamp(30px, 8vw, 48px);
+  font-weight:    400;
+  letter-spacing: -0.01em;
+  line-height:    1;
+  color:          var(--white);
+  opacity:        0.72;
+  padding:        28px var(--pad-x);
+  width:          100%;
+  text-align:     center;
+  border-bottom:  0.5px solid rgba(255, 255, 255, 0.07);
+  transition:     opacity 0.2s;
+}
+.mobile-nav__links a:first-child {
+  border-top: 0.5px solid rgba(255, 255, 255, 0.07);
+}
+.mobile-nav__links a:hover,
+.mobile-nav__links a:focus {
+  opacity: 1;
+}
+.mobile-nav__footer {
+  margin-top:     40px;
+  font-family:    var(--fb);
+  font-size:      10px;
+  font-weight:    300;
+  letter-spacing: 0.12em;
+  color:          rgba(255, 255, 255, 0.22);
+  text-align:     center;
+}
+
+/* On screens where hamburger is shown, raise header above overlay */
+@media (max-width: 768px) {
+  .header {
+    z-index: 200;
+  }
+  .header__link,
+  .header__cta {
+    display: none;
+  }
+  .header__menu-btn {
+    display: flex;
+  }
 }
 
 /* ── Page Hero (interior pages) ── */

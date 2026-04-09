@@ -3,7 +3,8 @@
    1. Header scroll state
    2. Scroll reveal (IntersectionObserver)
    3. Parallax: image break + statement bg
-   4. Contact form (Formspree + success state)
+   4. Mobile nav toggle
+   5. Contact form (Formspree + success state)
 ══════════════════════════════════════════════════════ */
 
 'use strict';
@@ -91,7 +92,43 @@
 
 
 /* ─────────────────────────────────────────────
-   4. CONTACT FORM
+   4. MOBILE NAV TOGGLE
+───────────────────────────────────────────── */
+(function () {
+  const btn   = document.querySelector('.header__menu-btn');
+  const nav   = document.getElementById('mobileNav');
+  if (!btn || !nav) return;
+
+  const links = nav.querySelectorAll('a');
+
+  function openMenu() {
+    btn.setAttribute('aria-expanded', 'true');
+    nav.setAttribute('aria-hidden',   'false');
+    nav.classList.add('open');
+    document.body.style.overflow = 'hidden';
+  }
+
+  function closeMenu() {
+    btn.setAttribute('aria-expanded', 'false');
+    nav.setAttribute('aria-hidden',   'true');
+    nav.classList.remove('open');
+    document.body.style.overflow = '';
+  }
+
+  btn.addEventListener('click', () => {
+    btn.getAttribute('aria-expanded') === 'true' ? closeMenu() : openMenu();
+  });
+
+  links.forEach((link) => link.addEventListener('click', closeMenu));
+
+  document.addEventListener('keydown', (e) => {
+    if (e.key === 'Escape' && nav.classList.contains('open')) closeMenu();
+  });
+}());
+
+
+/* ─────────────────────────────────────────────
+   5. CONTACT FORM
    Submits to Formspree (replace YOUR_FORM_ID in the
    action attribute with a real Formspree endpoint).
    Shows inline success message on completion.
