@@ -168,7 +168,7 @@ button { cursor: pointer; font-family: inherit; }
   inset-block-start: 0;
   inset-inline: 0;
   z-index:      100;
-  height:       72px;
+  height:       80px;
   display:      flex;
   align-items:  center;
   padding:      0 var(--pad-x);
@@ -193,12 +193,12 @@ button { cursor: pointer; font-family: inherit; }
 
 .header__logo {
   font-family:    var(--fb);
-  font-size:      10.5px;
+  font-size:      10px;
   font-weight:    300;
-  letter-spacing: 0.50em;
+  letter-spacing: 0.55em;
   color:          var(--white);
   mix-blend-mode: difference;
-  text-indent:    0.50em;
+  text-indent:    0.55em;
 }
 
 .header__nav {
@@ -1056,10 +1056,10 @@ button { cursor: pointer; font-family: inherit; }
 
 .footer__logo {
   font-family:    var(--fb);
-  font-size:      10.5px;
+  font-size:      10px;
   font-weight:    300;
-  letter-spacing: 0.50em;
-  text-indent:    0.50em;
+  letter-spacing: 0.55em;
+  text-indent:    0.55em;
   color:          var(--white);
 }
 
@@ -1599,6 +1599,16 @@ button { cursor: pointer; font-family: inherit; }
   color:       var(--mid);
 }
 
+/* ── Services page section label row ── */
+.svc-section-head {
+  border-bottom: 0.5px solid var(--rule);
+}
+.svc-section-head__inner {
+  max-width: var(--max);
+  margin:    0 auto;
+  padding:   40px var(--pad-x) 32px;
+}
+
 /* ── Sectors ── */
 .sectors {
   border-top: 0.5px solid var(--rule);
@@ -1733,10 +1743,64 @@ button { cursor: pointer; font-family: inherit; }
   max-width:   520px;
 }
 
+/* ══════════════════════════════════════════════════════
+   ADDITIONAL SCOPES (services page)
+══════════════════════════════════════════════════════ */
+.add-scopes {
+  padding:    var(--pad-y) var(--pad-x);
+  border-top: 0.5px solid var(--rule);
+  background: var(--white);
+}
+
+.add-scopes__inner {
+  max-width: var(--max);
+  margin:    0 auto;
+}
+
+.add-scopes__head {
+  margin-bottom: clamp(40px, 5vw, 60px);
+}
+
+.add-scopes__list {
+  display:               grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap:                   0;
+  border-top:            0.5px solid var(--rule);
+}
+
+.add-scope {
+  padding:      clamp(36px, 5vw, 56px) clamp(28px, 4vw, 48px) clamp(36px, 5vw, 56px) 0;
+  border-right: 0.5px solid var(--rule);
+}
+.add-scope:last-child {
+  border-right: none;
+  padding-left: clamp(28px, 4vw, 48px);
+}
+.add-scope:not(:first-child) {
+  padding-left: clamp(28px, 4vw, 48px);
+}
+
+.add-scope__title {
+  font-family:    var(--fd);
+  font-size:      clamp(20px, 2.4vw, 28px);
+  font-weight:    400;
+  letter-spacing: -0.01em;
+  line-height:    1.18;
+  margin-bottom:  20px;
+  color:          var(--black);
+}
+
+.add-scope__copy {
+  font-size:   13px;
+  font-weight: 300;
+  line-height: 1.85;
+  color:       var(--mid);
+}
+
 /* ── Enquire page: full-height contact ── */
 .contact--page {
-  min-height: calc(100vh - 72px);
-  padding-top: calc(var(--pad-y) + 72px);
+  min-height: calc(100vh - 80px);
+  padding-top: calc(var(--pad-y) + 80px);
 }
 
 
@@ -1744,6 +1808,20 @@ button { cursor: pointer; font-family: inherit; }
    MULTI-PAGE RESPONSIVE
 ══════════════════════════════════════════════════════ */
 @media (max-width: 1024px) {
+
+  .add-scopes__list {
+    grid-template-columns: 1fr;
+  }
+  .add-scope,
+  .add-scope:last-child,
+  .add-scope:not(:first-child) {
+    padding:       clamp(32px, 5vw, 48px) 0;
+    border-right:  none;
+    border-bottom: 0.5px solid var(--rule);
+  }
+  .add-scope:last-child {
+    border-bottom: none;
+  }
 
   .svc-page__item-inner {
     grid-template-columns: 200px 1fr;
