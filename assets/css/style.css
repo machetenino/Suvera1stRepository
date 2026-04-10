@@ -1097,12 +1097,6 @@ button { cursor: pointer; font-family: inherit; }
   color:          rgba(255, 255, 255, 0.22);
 }
 
-.footer__legal {
-  font-size:      10px;
-  font-weight:    300;
-  letter-spacing: 0.06em;
-  color:          rgba(255, 255, 255, 0.20);
-}
 
 
 /* ══════════════════════════════════════════════════════
