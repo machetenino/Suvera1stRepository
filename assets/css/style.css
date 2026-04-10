@@ -151,6 +151,23 @@ button { cursor: pointer; font-family: inherit; }
 .reveal[data-d="3"] { transition-delay: 0.30s; }
 .reveal.in { opacity: 1; transform: translateY(0); }
 
+/* Image bands — opacity fade only (no translateY to avoid layout shift) */
+.imgbreak.reveal,
+.about-imgbreak.reveal,
+.svc-imgbreak.reveal,
+.process-fullimg.reveal,
+.process-endimg.reveal {
+  transform:  none;
+  transition: opacity 0.9s var(--ease);
+}
+.imgbreak.reveal.in,
+.about-imgbreak.reveal.in,
+.svc-imgbreak.reveal.in,
+.process-fullimg.reveal.in,
+.process-endimg.reveal.in {
+  transform: none;
+}
+
 @keyframes fadeUp {
   to { opacity: 1; transform: translateY(0); }
 }
@@ -1288,16 +1305,25 @@ button { cursor: pointer; font-family: inherit; }
   text-transform: uppercase;
   line-height:    1;
   color:          var(--white);
-  opacity:        0.72;
+  opacity:        0;
+  transform:      translateY(10px);
   padding:        28px var(--pad-x);
   width:          100%;
   text-align:     center;
   border-bottom:  0.5px solid rgba(255, 255, 255, 0.07);
-  transition:     opacity 0.2s;
+  transition:     opacity 0.3s var(--ease), transform 0.3s var(--ease);
 }
 .mobile-nav__links a:first-child {
   border-top: 0.5px solid rgba(255, 255, 255, 0.07);
 }
+.mobile-nav.open .mobile-nav__links a {
+  opacity:   0.72;
+  transform: translateY(0);
+}
+.mobile-nav.open .mobile-nav__links a:nth-child(1) { transition-delay: 0.10s; }
+.mobile-nav.open .mobile-nav__links a:nth-child(2) { transition-delay: 0.18s; }
+.mobile-nav.open .mobile-nav__links a:nth-child(3) { transition-delay: 0.26s; }
+.mobile-nav.open .mobile-nav__links a:nth-child(4) { transition-delay: 0.34s; }
 .mobile-nav__links a:hover,
 .mobile-nav__links a:focus {
   opacity: 1;
@@ -2365,6 +2391,12 @@ button { cursor: pointer; font-family: inherit; }
   .reveal.in { transform: none; }
 
   .hero__img { animation: none; }
+
+  .mobile-nav__links a {
+    transform:  none;
+    transition: opacity 0.2s ease;
+  }
+  .mobile-nav.open .mobile-nav__links a { transform: none; }
 
   .svc-img3__item:hover img,
   .process-preview__media:hover img {
