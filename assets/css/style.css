@@ -341,7 +341,7 @@ button { cursor: pointer; font-family: inherit; }
   font-weight:    300;
   letter-spacing: 0.22em;
   text-transform: uppercase;
-  color:          rgba(255, 255, 255, 0.18);
+  color:          rgba(255, 255, 255, 0.45);
 }
 
 
@@ -386,7 +386,7 @@ button { cursor: pointer; font-family: inherit; }
 ══════════════════════════════════════════════════════ */
 .imgbreak {
   position: relative;
-  height:   92vh;
+  height:   clamp(480px, 55vh, 640px);
   overflow: hidden;
 }
 
@@ -774,7 +774,7 @@ button { cursor: pointer; font-family: inherit; }
 .statement__overlay {
   position:   absolute;
   inset:      0;
-  background: rgba(10, 10, 10, 0.76);
+  background: rgba(10, 10, 10, 0.62);
 }
 
 .statement__quote {
@@ -1194,15 +1194,14 @@ button { cursor: pointer; font-family: inherit; }
 
   /* Section padding — mobile */
   .intro,
+  .what-we-do,
   .process-preview        { padding: 64px var(--pad-x); }
-  .what-we-do__header     { padding: 56px var(--pad-x) 40px; }
-  .what-we-do__body       { padding: 32px var(--pad-x) 56px; }
   .contact-cta            { padding: 56px var(--pad-x); }
   .about-intro,
   .about-values-section,
   .sectors-section,
-  .process-intro,
   .process-steps-section  { padding: 64px var(--pad-x); }
+  .process-intro          { padding: 40px var(--pad-x); }
   .svc-page__item         { padding: 60px var(--pad-x); }
   .statement              { padding: 80px var(--pad-x); }
 }
@@ -1411,6 +1410,7 @@ button { cursor: pointer; font-family: inherit; }
    HOME — WHAT WE DO
 ══════════════════════════════════════════════════════ */
 .what-we-do {
+  padding:       clamp(80px, 11vw, 128px) var(--pad-x);
   border-bottom: 0.5px solid var(--rule);
 }
 
@@ -1419,17 +1419,8 @@ button { cursor: pointer; font-family: inherit; }
   margin:    0 auto;
 }
 
-.what-we-do__header {
-  padding: clamp(80px, 11vw, 128px) var(--pad-x) clamp(64px, 8vw, 96px);
-  border-bottom: 0.5px solid var(--rule);
-}
-
-.what-we-do__body {
-  padding: clamp(48px, 6vw, 72px) var(--pad-x) clamp(80px, 11vw, 128px);
-}
-
 .what-we-do__head {
-  margin-bottom: 0;
+  margin-bottom: clamp(64px, 8vw, 96px);
 }
 
 .what-we-do__heading {
@@ -2245,7 +2236,7 @@ button { cursor: pointer; font-family: inherit; }
    PROCESS PAGE — REBUILT SECTIONS
 ══════════════════════════════════════════════════════ */
 .process-intro {
-  padding:       clamp(80px, 11vw, 128px) var(--pad-x);
+  padding:       clamp(48px, 6vw, 72px) var(--pad-x);
   border-bottom: 0.5px solid var(--rule);
   background:    var(--white);
 }
