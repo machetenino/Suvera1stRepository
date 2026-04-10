@@ -313,13 +313,13 @@ button { cursor: pointer; font-family: inherit; }
 
 .hero__headline {
   font-family:    var(--fd);
-  font-size:      clamp(28px, 4vw, 52px);
+  font-size:      clamp(20px, 2.8vw, 36px);
   font-weight:    300;
-  letter-spacing: 0.15em;
+  letter-spacing: 0.12em;
   text-transform: uppercase;
-  line-height:    1.5;
-  color:          rgba(255, 255, 255, 0.72);
-  margin-bottom:  40px;
+  line-height:    1.7;
+  color:          rgba(255, 255, 255, 0.58);
+  margin-bottom:  52px;
 }
 
 .hero__copy {
