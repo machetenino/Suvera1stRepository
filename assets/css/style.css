@@ -1,7 +1,6 @@
 /* ══════════════════════════════════════════════════════
    SUVERA — Stylesheet
-   Display : Cormorant Garamond
-   Body    : Jost
+   Font    : Inter
    Palette : #0A0A0A / #FFFFFF / #FAF9F7 / #E2E2DE / ...
    Updated : 2026
 ══════════════════════════════════════════════════════ */
@@ -22,13 +21,13 @@
   --xlight:     #E8E8E5;
 
   /* Type */
-  --fd: 'Cormorant Garamond', 'Lora', Georgia, serif;
-  --fb: 'Jost', 'Poppins', system-ui, sans-serif;
+  --fd: 'Inter', system-ui, -apple-system, sans-serif;
+  --fb: 'Inter', system-ui, -apple-system, sans-serif;
 
   /* Layout */
   --max:        1200px;
   --pad-x:      clamp(28px, 5.5vw, 72px);
-  --pad-y:      clamp(112px, 14vw, 160px);
+  --pad-y:      clamp(120px, 15vw, 168px);
   --gap:        24px;
 
   /* Motion */
@@ -56,10 +55,11 @@ body {
   font-weight:              300;
   background:               var(--off-white);
   color:                    var(--black);
-  line-height:              1.7;
+  line-height:              1.78;
   overflow-x:               hidden;
   -webkit-font-smoothing:   antialiased;
   -moz-osx-font-smoothing:  grayscale;
+  font-feature-settings:    'kern' 1, 'liga' 1;
 }
 
 img  { display: block; max-width: 100%; height: 100%; object-fit: cover; }
@@ -77,10 +77,10 @@ button { cursor: pointer; font-family: inherit; }
   font-family:    var(--fb);
   font-size:      10px;
   font-weight:    400;
-  letter-spacing: 0.2em;
+  letter-spacing: 0.22em;
   text-transform: uppercase;
   color:          var(--muted);
-  margin-bottom:  28px;
+  margin-bottom:  32px;
 }
 
 
@@ -204,30 +204,30 @@ button { cursor: pointer; font-family: inherit; }
 .header__nav {
   display:     flex;
   align-items: center;
-  gap:         48px;
+  gap:         56px;
 }
 
 .header__link {
   font-family:    var(--fb);
-  font-size:      10px;
+  font-size:      11px;
   font-weight:    400;
-  letter-spacing: 0.16em;
+  letter-spacing: 0.14em;
   text-transform: uppercase;
   color:          var(--white);
   mix-blend-mode: difference;
   transition:     opacity 0.2s;
 }
-.header__link:hover { opacity: 0.55; }
+.header__link:hover { opacity: 0.50; }
 
 .header__cta {
   font-family:    var(--fb);
-  font-size:      10px;
+  font-size:      11px;
   font-weight:    400;
-  letter-spacing: 0.16em;
+  letter-spacing: 0.14em;
   text-transform: uppercase;
   color:          var(--white);
   border:         0.5px solid rgba(255, 255, 255, 0.45);
-  padding:        9px 22px;
+  padding:        10px 24px;
   mix-blend-mode: difference;
   transition:     background 0.25s, color 0.25s;
 }
@@ -288,20 +288,21 @@ button { cursor: pointer; font-family: inherit; }
 .hero__eyebrow {
   display:        block;
   font-family:    var(--fb);
-  font-size:      10px;
+  font-size:      11px;
   font-weight:    300;
-  letter-spacing: 0.22em;
+  letter-spacing: 0.20em;
   text-transform: uppercase;
-  color:          rgba(255, 255, 255, 0.40);
-  margin-bottom:  40px;
+  color:          rgba(255, 255, 255, 0.38);
+  margin-bottom:  48px;
 }
 
 .hero__headline {
   font-family:    var(--fd);
-  font-size:      clamp(56px, 8.5vw, 104px);
-  font-weight:    400;
-  letter-spacing: -0.025em;
-  line-height:    1.02;
+  font-size:      clamp(44px, 7vw, 88px);
+  font-weight:    300;
+  letter-spacing: 0.15em;
+  text-transform: uppercase;
+  line-height:    1.18;
   color:          var(--white);
   margin-bottom:  40px;
 }
@@ -310,21 +311,22 @@ button { cursor: pointer; font-family: inherit; }
   font-family:   var(--fb);
   font-size:     14px;
   font-weight:   300;
-  line-height:   1.85;
-  color:         rgba(255, 255, 255, 0.42);
-  max-width:     480px;
+  line-height:   1.82;
+  color:         rgba(255, 255, 255, 0.40);
+  max-width:     520px;
   margin-bottom: 52px;
+  letter-spacing: 0.01em;
 }
 
 .hero__tagline {
   display:        block;
-  margin-top:     72px;
-  font-family:    var(--fd);
-  font-size:      13px;
+  margin-top:     80px;
+  font-family:    var(--fb);
+  font-size:      11px;
   font-weight:    300;
-  font-style:     italic;
-  letter-spacing: 0.12em;
-  color:          rgba(255, 255, 255, 0.12);
+  letter-spacing: 0.22em;
+  text-transform: uppercase;
+  color:          rgba(255, 255, 255, 0.18);
 }
 
 
@@ -347,19 +349,20 @@ button { cursor: pointer; font-family: inherit; }
 
 .intro__display {
   font-family:    var(--fd);
-  font-size:      clamp(28px, 3.8vw, 48px);
+  font-size:      clamp(22px, 2.8vw, 34px);
   font-weight:    400;
-  line-height:    1.28;
-  letter-spacing: -0.022em;
+  line-height:    1.55;
+  letter-spacing: 0.02em;
   color:          var(--black);
 }
 
 .intro__body {
-  font-size:   13px;
+  font-size:   14px;
   font-weight: 300;
-  line-height: 1.95;
+  line-height: 1.88;
   color:       var(--mid);
-  padding-top: 12px;
+  padding-top: 6px;
+  letter-spacing: 0.01em;
 }
 
 
@@ -558,10 +561,11 @@ button { cursor: pointer; font-family: inherit; }
 
 .about__heading {
   font-family:    var(--fd);
-  font-size:      clamp(26px, 3.2vw, 38px);
-  font-weight:    400;
-  letter-spacing: -0.015em;
-  line-height:    1.18;
+  font-size:      clamp(22px, 2.6vw, 34px);
+  font-weight:    300;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+  line-height:    1.25;
   margin-bottom:  36px;
 }
 
@@ -597,9 +601,10 @@ button { cursor: pointer; font-family: inherit; }
 
 .values__term {
   font-family:    var(--fd);
-  font-size:      18px;
-  font-weight:    500;
-  letter-spacing: 0.01em;
+  font-size:      11px;
+  font-weight:    400;
+  letter-spacing: 0.16em;
+  text-transform: uppercase;
   color:          var(--black);
 }
 
@@ -640,10 +645,11 @@ button { cursor: pointer; font-family: inherit; }
   color:       var(--mid);
 }
 .firm-facts__item dd em {
-  font-family:   var(--fd);
-  font-style:    italic;
-  font-size:     13px;
-  color:         var(--black);
+  font-family: var(--fd);
+  font-style:  normal;
+  font-size:   12px;
+  font-weight: 400;
+  color:       var(--black);
 }
 
 /* Sticky image */
@@ -733,7 +739,7 @@ button { cursor: pointer; font-family: inherit; }
 ══════════════════════════════════════════════════════ */
 .statement {
   position: relative;
-  padding:  clamp(240px, 36vw, 440px) var(--pad-x);
+  padding:  clamp(160px, 22vw, 280px) var(--pad-x);
   display:  flex;
   align-items: center;
   justify-content: center;
@@ -759,14 +765,14 @@ button { cursor: pointer; font-family: inherit; }
   position:       relative;
   z-index:        2;
   font-family:    var(--fd);
-  font-size:      clamp(48px, 9.5vw, 128px);
-  font-weight:    400;
-  font-style:     italic;
-  letter-spacing: -0.032em;
-  line-height:    1.18;
+  font-size:      clamp(32px, 4.5vw, 52px);
+  font-weight:    300;
+  letter-spacing: 0.06em;
+  text-transform: uppercase;
+  line-height:    1.55;
   color:          var(--white);
   text-align:     center;
-  max-width:      1080px;
+  max-width:      800px;
 }
 .statement__quote::after {
   content:    '';
@@ -794,10 +800,11 @@ button { cursor: pointer; font-family: inherit; }
 
 .name-origin__heading {
   font-family:    var(--fd);
-  font-size:      clamp(26px, 3.2vw, 40px);
-  font-weight:    400;
-  letter-spacing: -0.015em;
-  line-height:    1.2;
+  font-size:      clamp(22px, 2.8vw, 36px);
+  font-weight:    300;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+  line-height:    1.25;
   margin-bottom:  28px;
   max-width:      600px;
 }
@@ -873,10 +880,11 @@ button { cursor: pointer; font-family: inherit; }
 
 .contact__heading {
   font-family:    var(--fd);
-  font-size:      clamp(32px, 4.5vw, 52px);
-  font-weight:    400;
-  letter-spacing: -0.02em;
-  line-height:    1.08;
+  font-size:      clamp(28px, 3.8vw, 48px);
+  font-weight:    300;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+  line-height:    1.22;
   margin-bottom:  28px;
 }
 
@@ -1066,11 +1074,11 @@ button { cursor: pointer; font-family: inherit; }
 
 .footer__tagline {
   font-family:    var(--fd);
-  font-size:      12px;
+  font-size:      10px;
   font-weight:    300;
-  font-style:     italic;
-  letter-spacing: 0.04em;
-  color:          rgba(255, 255, 255, 0.28);
+  letter-spacing: 0.20em;
+  text-transform: uppercase;
+  color:          rgba(255, 255, 255, 0.22);
 }
 
 .footer__legal {
@@ -1242,9 +1250,10 @@ button { cursor: pointer; font-family: inherit; }
 .mobile-nav__links a {
   display:        block;
   font-family:    var(--fd);
-  font-size:      clamp(30px, 8vw, 48px);
-  font-weight:    400;
-  letter-spacing: -0.01em;
+  font-size:      clamp(22px, 5.5vw, 36px);
+  font-weight:    300;
+  letter-spacing: 0.12em;
+  text-transform: uppercase;
   line-height:    1;
   color:          var(--white);
   opacity:        0.72;
@@ -1301,30 +1310,32 @@ button { cursor: pointer; font-family: inherit; }
   display:        block;
   font-family:    var(--fb);
   font-size:      10px;
-  font-weight:    300;
-  letter-spacing: 0.22em;
+  font-weight:    400;
+  letter-spacing: 0.24em;
   text-transform: uppercase;
   color:          rgba(255, 255, 255, 0.32);
-  margin-bottom:  32px;
+  margin-bottom:  40px;
 }
 
 .page-hero__heading {
   font-family:    var(--fd);
-  font-size:      clamp(48px, 7vw, 88px);
-  font-weight:    400;
-  letter-spacing: -0.025em;
-  line-height:    1.05;
+  font-size:      clamp(36px, 5.5vw, 72px);
+  font-weight:    300;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+  line-height:    1.22;
   color:          var(--white);
-  margin-bottom:  32px;
+  margin-bottom:  36px;
 }
 
 .page-hero__copy {
-  font-family:  var(--fb);
-  font-size:    14px;
-  font-weight:  300;
-  line-height:  1.88;
-  color:        rgba(255, 255, 255, 0.38);
-  max-width:    500px;
+  font-family:    var(--fb);
+  font-size:      14px;
+  font-weight:    300;
+  line-height:    1.82;
+  letter-spacing: 0.01em;
+  color:          rgba(255, 255, 255, 0.38);
+  max-width:      560px;
 }
 
 /* ── Text link ── */
@@ -1379,10 +1390,11 @@ button { cursor: pointer; font-family: inherit; }
 
 .what-we-do__heading {
   font-family:    var(--fd);
-  font-size:      clamp(36px, 5vw, 64px);
+  font-size:      clamp(26px, 3.2vw, 42px);
   font-weight:    400;
-  letter-spacing: -0.024em;
-  line-height:    1.08;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+  line-height:    1.2;
 }
 
 .what-we-do__list {
@@ -1409,19 +1421,21 @@ button { cursor: pointer; font-family: inherit; }
 
 .wwd-item__title {
   font-family:    var(--fd);
-  font-size:      clamp(22px, 2.8vw, 34px);
+  font-size:      clamp(13px, 1.4vw, 16px);
   font-weight:    400;
-  letter-spacing: -0.015em;
-  line-height:    1.12;
-  margin-bottom:  18px;
+  letter-spacing: 0.12em;
+  text-transform: uppercase;
+  line-height:    1.4;
+  margin-bottom:  20px;
 }
 
 .wwd-item__copy {
   font-size:   14px;
   font-weight: 300;
-  line-height: 1.85;
+  line-height: 1.82;
   color:       var(--mid);
-  max-width:   540px;
+  max-width:   560px;
+  letter-spacing: 0.01em;
 }
 
 .what-we-do__footer {
@@ -1437,11 +1451,11 @@ button { cursor: pointer; font-family: inherit; }
 
 .what-we-do__sectors {
   font-family:    var(--fd);
-  font-size:      clamp(14px, 1.6vw, 16px);
+  font-size:      11px;
   font-weight:    300;
-  font-style:     italic;
+  letter-spacing: 0.14em;
+  text-transform: uppercase;
   color:          var(--muted);
-  letter-spacing: 0.01em;
 }
 
 
@@ -1490,10 +1504,11 @@ button { cursor: pointer; font-family: inherit; }
 
 .contact-cta__text {
   font-family:    var(--fd);
-  font-size:      clamp(30px, 4.5vw, 52px);
-  font-weight:    400;
-  letter-spacing: -0.025em;
-  line-height:    1.08;
+  font-size:      clamp(18px, 2.2vw, 28px);
+  font-weight:    300;
+  letter-spacing: 0.10em;
+  text-transform: uppercase;
+  line-height:    1.3;
   color:          var(--black);
 }
 
@@ -1572,19 +1587,21 @@ button { cursor: pointer; font-family: inherit; }
 }
 
 .svc-page__num {
-  font-family:    var(--fd);
-  font-size:      11px;
-  font-weight:    300;
-  letter-spacing: 0.1em;
-  color:          var(--muted);
+  font-family:    var(--fb);
+  font-size:      10px;
+  font-weight:    400;
+  letter-spacing: 0.18em;
+  color:          var(--light);
+  text-transform: uppercase;
 }
 
 .svc-page__title {
   font-family:    var(--fd);
-  font-size:      clamp(30px, 4vw, 52px);
+  font-size:      clamp(22px, 2.8vw, 36px);
   font-weight:    400;
-  letter-spacing: -0.015em;
-  line-height:    1.08;
+  letter-spacing: 0.06em;
+  text-transform: uppercase;
+  line-height:    1.3;
 }
 
 .svc-page__body {
@@ -1594,10 +1611,12 @@ button { cursor: pointer; font-family: inherit; }
 }
 
 .svc-page__body p {
-  font-size:   14px;
-  font-weight: 300;
-  line-height: 1.92;
-  color:       var(--mid);
+  font-size:      14px;
+  font-weight:    300;
+  line-height:    1.88;
+  color:          var(--mid);
+  letter-spacing: 0.01em;
+  max-width:      640px;
 }
 
 /* ── Services page section label row ── */
@@ -1736,28 +1755,31 @@ button { cursor: pointer; font-family: inherit; }
 }
 
 .process-step__num {
-  font-family:    var(--fd);
-  font-size:      13px;
-  font-weight:    300;
-  letter-spacing: 0.12em;
+  font-family:    var(--fb);
+  font-size:      10px;
+  font-weight:    400;
+  letter-spacing: 0.18em;
   color:          var(--light);
   flex-shrink:    0;
+  text-transform: uppercase;
 }
 
 .process-step__title {
   font-family:    var(--fd);
-  font-size:      clamp(22px, 2.8vw, 34px);
+  font-size:      clamp(14px, 1.6vw, 18px);
   font-weight:    400;
-  letter-spacing: -0.012em;
-  line-height:    1.14;
+  letter-spacing: 0.12em;
+  text-transform: uppercase;
+  line-height:    1.4;
 }
 
 .process-step__copy {
-  font-size:   14px;
-  font-weight: 300;
-  line-height: 1.92;
-  color:       var(--mid);
-  max-width:   520px;
+  font-size:      14px;
+  font-weight:    300;
+  line-height:    1.88;
+  color:          var(--mid);
+  max-width:      600px;
+  letter-spacing: 0.01em;
 }
 
 /* ══════════════════════════════════════════════════════
@@ -1799,10 +1821,11 @@ button { cursor: pointer; font-family: inherit; }
 
 .add-scope__title {
   font-family:    var(--fd);
-  font-size:      clamp(17px, 1.8vw, 22px);
+  font-size:      clamp(13px, 1.4vw, 16px);
   font-weight:    400;
-  letter-spacing: -0.005em;
-  line-height:    1.22;
+  letter-spacing: 0.12em;
+  text-transform: uppercase;
+  line-height:    1.4;
   margin-bottom:  20px;
   color:          var(--black);
 }
@@ -1949,10 +1972,11 @@ button { cursor: pointer; font-family: inherit; }
 
 .process-preview__heading {
   font-family:    var(--fd);
-  font-size:      clamp(30px, 3.8vw, 52px);
-  font-weight:    400;
-  letter-spacing: -0.022em;
-  line-height:    1.08;
+  font-size:      clamp(26px, 3.2vw, 44px);
+  font-weight:    300;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+  line-height:    1.22;
   margin-bottom:  28px;
   color:          var(--black);
 }
@@ -2026,10 +2050,11 @@ button { cursor: pointer; font-family: inherit; }
 }
 .about-values-section__heading {
   font-family:    var(--fd);
-  font-size:      clamp(22px, 2.8vw, 34px);
-  font-weight:    400;
-  letter-spacing: -0.012em;
-  line-height:    1.18;
+  font-size:      clamp(20px, 2.4vw, 32px);
+  font-weight:    300;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+  line-height:    1.28;
   color:          var(--black);
   margin-top:     8px;
 }
@@ -2076,10 +2101,11 @@ button { cursor: pointer; font-family: inherit; }
 }
 .sectors-section__heading {
   font-family:    var(--fd);
-  font-size:      clamp(22px, 2.8vw, 34px);
-  font-weight:    400;
-  letter-spacing: -0.012em;
-  line-height:    1.18;
+  font-size:      clamp(20px, 2.4vw, 32px);
+  font-weight:    300;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+  line-height:    1.28;
   color:          var(--black);
   margin-top:     8px;
   margin-bottom:  20px;
@@ -2097,9 +2123,10 @@ button { cursor: pointer; font-family: inherit; }
 }
 .sectors-section__item {
   font-family:    var(--fd);
-  font-size:      clamp(18px, 2vw, 26px);
-  font-weight:    300;
-  letter-spacing: -0.008em;
+  font-size:      clamp(13px, 1.5vw, 16px);
+  font-weight:    400;
+  letter-spacing: 0.14em;
+  text-transform: uppercase;
   padding:        22px 0 22px 0;
   border-bottom:  0.5px solid var(--rule);
   border-right:   0.5px solid var(--rule);
@@ -2168,10 +2195,11 @@ button { cursor: pointer; font-family: inherit; }
 }
 .process-steps-section__heading {
   font-family:    var(--fd);
-  font-size:      clamp(30px, 3.8vw, 52px);
-  font-weight:    400;
-  letter-spacing: -0.022em;
-  line-height:    1.08;
+  font-size:      clamp(26px, 3.2vw, 44px);
+  font-weight:    300;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+  line-height:    1.22;
   color:          var(--black);
 }
 
