@@ -194,12 +194,12 @@ button { cursor: pointer; font-family: inherit; }
 
 .header__logo {
   font-family:    var(--fb);
-  font-size:      13px;
+  font-size:      14px;
   font-weight:    300;
-  letter-spacing: 0.38em;
+  letter-spacing: 0.42em;
   color:          var(--white);
   mix-blend-mode: difference;
-  text-indent:    0.38em;
+  text-indent:    0.42em;
 }
 
 .header__nav {
@@ -1081,10 +1081,10 @@ button { cursor: pointer; font-family: inherit; }
 
 .footer__logo {
   font-family:    var(--fb);
-  font-size:      13px;
+  font-size:      14px;
   font-weight:    300;
-  letter-spacing: 0.38em;
-  text-indent:    0.38em;
+  letter-spacing: 0.42em;
+  text-indent:    0.42em;
   color:          var(--white);
 }
 
@@ -1194,8 +1194,9 @@ button { cursor: pointer; font-family: inherit; }
 
   /* Section padding — mobile */
   .intro,
-  .what-we-do,
   .process-preview        { padding: 64px var(--pad-x); }
+  .what-we-do__header     { padding: 56px var(--pad-x) 40px; }
+  .what-we-do__body       { padding: 32px var(--pad-x) 56px; }
   .contact-cta            { padding: 56px var(--pad-x); }
   .about-intro,
   .about-values-section,
@@ -1410,7 +1411,6 @@ button { cursor: pointer; font-family: inherit; }
    HOME — WHAT WE DO
 ══════════════════════════════════════════════════════ */
 .what-we-do {
-  padding:       clamp(96px, 13vw, 152px) var(--pad-x);
   border-bottom: 0.5px solid var(--rule);
 }
 
@@ -1419,8 +1419,17 @@ button { cursor: pointer; font-family: inherit; }
   margin:    0 auto;
 }
 
+.what-we-do__header {
+  padding: clamp(80px, 11vw, 128px) var(--pad-x) clamp(64px, 8vw, 96px);
+  border-bottom: 0.5px solid var(--rule);
+}
+
+.what-we-do__body {
+  padding: clamp(48px, 6vw, 72px) var(--pad-x) clamp(80px, 11vw, 128px);
+}
+
 .what-we-do__head {
-  margin-bottom: clamp(80px, 10vw, 120px);
+  margin-bottom: 0;
 }
 
 .what-we-do__heading {
@@ -1495,6 +1504,51 @@ button { cursor: pointer; font-family: inherit; }
 
 
 /* ══════════════════════════════════════════════════════
+   3-IMAGE STRIP  (services strip on homepage + services page)
+══════════════════════════════════════════════════════ */
+.svc-img3 {
+  display:       grid;
+  grid-template-columns: 1fr 1fr 1fr;
+  height:        clamp(260px, 36vh, 440px);
+  overflow:      hidden;
+  border-top:    0.5px solid var(--rule);
+  border-bottom: 0.5px solid var(--rule);
+}
+
+.svc-img3__item {
+  overflow: hidden;
+  position: relative;
+}
+
+.svc-img3__item + .svc-img3__item {
+  border-left: 0.5px solid var(--rule);
+}
+
+.svc-img3__item img {
+  width:            100%;
+  height:           100%;
+  object-fit:       cover;
+  object-position:  center 35%;
+  display:          block;
+  transition:       transform 0.6s var(--ease);
+}
+
+@media (max-width: 640px) {
+  .svc-img3 {
+    grid-template-columns: 1fr;
+    height:                auto;
+  }
+  .svc-img3__item {
+    height: 220px;
+  }
+  .svc-img3__item + .svc-img3__item {
+    border-left:  none;
+    border-top:   0.5px solid var(--rule);
+  }
+}
+
+
+/* ══════════════════════════════════════════════════════
    HOME — FIRM PREVIEW
 ══════════════════════════════════════════════════════ */
 .firm-preview {
@@ -1565,7 +1619,7 @@ button { cursor: pointer; font-family: inherit; }
   margin:                0 auto;
   display:               grid;
   grid-template-columns: 280px 1fr;
-  gap:                   clamp(40px, 7vw, 96px);
+  gap:                   clamp(64px, 10vw, 144px);
   align-items:           start;
 }
 
@@ -1887,8 +1941,8 @@ button { cursor: pointer; font-family: inherit; }
   content:        '';
   position:       absolute;
   inset:          0;
-  background:     url('../../texture.png') center / cover;
-  opacity:        0.018;
+  background:     url('../../Texture.png') center / cover;
+  opacity:        0.025;
   pointer-events: none;
 }
 
@@ -1914,6 +1968,7 @@ button { cursor: pointer; font-family: inherit; }
 
   .svc-page__item-inner {
     grid-template-columns: 200px 1fr;
+    gap: clamp(40px, 6vw, 72px);
   }
 
   .svc-page__item--image,
@@ -2033,7 +2088,7 @@ button { cursor: pointer; font-family: inherit; }
   width:            100%;
   aspect-ratio:     4 / 5;
   object-fit:       cover;
-  object-position:  right 8%;
+  object-position:  center 25%;
 }
 
 
