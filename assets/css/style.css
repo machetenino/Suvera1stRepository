@@ -194,12 +194,12 @@ button { cursor: pointer; font-family: inherit; }
 
 .header__logo {
   font-family:    var(--fb);
-  font-size:      11px;
+  font-size:      13px;
   font-weight:    300;
-  letter-spacing: 0.22em;
+  letter-spacing: 0.38em;
   color:          var(--white);
   mix-blend-mode: difference;
-  text-indent:    0.22em;
+  text-indent:    0.38em;
 }
 
 .header__nav {
@@ -604,9 +604,9 @@ button { cursor: pointer; font-family: inherit; }
 }
 .values__item {
   display:               grid;
-  grid-template-columns: 112px 1fr;
-  gap:                   28px;
-  padding:               24px 0;
+  grid-template-columns: 120px 1fr;
+  gap:                   36px;
+  padding:               36px 0;
   border-top:            0.5px solid var(--rule);
   align-items:           baseline;
 }
@@ -624,10 +624,11 @@ button { cursor: pointer; font-family: inherit; }
 }
 
 .values__def {
-  font-size:   13px;
-  font-weight: 300;
-  line-height: 1.82;
-  color:       var(--mid);
+  font-size:      14px;
+  font-weight:    300;
+  line-height:    1.90;
+  letter-spacing: 0.01em;
+  color:          var(--mid);
 }
 
 /* Company facts panel */
@@ -1080,10 +1081,10 @@ button { cursor: pointer; font-family: inherit; }
 
 .footer__logo {
   font-family:    var(--fb);
-  font-size:      11px;
+  font-size:      13px;
   font-weight:    300;
-  letter-spacing: 0.22em;
-  text-indent:    0.22em;
+  letter-spacing: 0.38em;
+  text-indent:    0.38em;
   color:          var(--white);
 }
 
@@ -1622,7 +1623,7 @@ button { cursor: pointer; font-family: inherit; }
 .svc-page__body {
   display:        flex;
   flex-direction: column;
-  gap:            28px;
+  gap:            36px;
 }
 
 .svc-page__body p {
@@ -1755,7 +1756,7 @@ button { cursor: pointer; font-family: inherit; }
 }
 
 .process-step {
-  padding:       64px 0;
+  padding:       80px 0;
   border-bottom: 0.5px solid var(--rule);
 }
 .process-step:first-child {
@@ -1765,8 +1766,8 @@ button { cursor: pointer; font-family: inherit; }
 .process-step__head {
   display:      flex;
   align-items:  baseline;
-  gap:          28px;
-  margin-bottom: 28px;
+  gap:          32px;
+  margin-bottom: 40px;
 }
 
 .process-step__num {
@@ -2029,13 +2030,14 @@ button { cursor: pointer; font-family: inherit; }
   margin:    0 auto;
 }
 .about-intro p {
-  font-size:   14px;
-  font-weight: 300;
-  line-height: 1.95;
-  color:       var(--mid);
+  font-size:      14px;
+  font-weight:    300;
+  line-height:    2.05;
+  letter-spacing: 0.01em;
+  color:          var(--mid);
 }
 .about-intro p + p {
-  margin-top: 32px;
+  margin-top: 52px;
 }
 
 .about-imgbreak {
