@@ -349,7 +349,7 @@ button { cursor: pointer; font-family: inherit; }
    02  INTRO
 ══════════════════════════════════════════════════════ */
 .intro {
-  padding:       clamp(96px, 13vw, 152px) var(--pad-x);
+  padding:       clamp(72px, 9vw, 104px) var(--pad-x);
   border-bottom: 0.5px solid var(--rule);
 }
 
@@ -1195,15 +1195,15 @@ button { cursor: pointer; font-family: inherit; }
   /* Section padding — mobile */
   .intro,
   .what-we-do,
-  .process-preview        { padding: 64px var(--pad-x); }
-  .contact-cta            { padding: 56px var(--pad-x); }
+  .process-preview        { padding: 56px var(--pad-x); }
+  .contact-cta            { padding: 48px var(--pad-x); }
   .about-intro,
   .about-values-section,
   .sectors-section,
-  .process-steps-section  { padding: 64px var(--pad-x); }
-  .process-intro          { padding: 40px var(--pad-x); }
-  .svc-page__item         { padding: 60px var(--pad-x); }
-  .statement              { padding: 80px var(--pad-x); }
+  .process-steps-section  { padding: 56px var(--pad-x); }
+  .process-intro          { padding: 36px var(--pad-x); }
+  .svc-page__item         { padding: 52px var(--pad-x); }
+  .statement              { padding: 72px var(--pad-x); }
 }
 
 
@@ -1332,7 +1332,7 @@ button { cursor: pointer; font-family: inherit; }
 /* ── Page Hero (interior pages) ── */
 .page-hero {
   background:     var(--black);
-  padding:        clamp(152px, 20vw, 220px) var(--pad-x) clamp(104px, 13vw, 144px);
+  padding:        clamp(120px, 16vw, 168px) var(--pad-x) clamp(64px, 8vw, 96px);
   border-bottom:  0.5px solid rgba(255, 255, 255, 0.07);
 }
 
@@ -1410,7 +1410,7 @@ button { cursor: pointer; font-family: inherit; }
    HOME — WHAT WE DO
 ══════════════════════════════════════════════════════ */
 .what-we-do {
-  padding:       clamp(80px, 11vw, 128px) var(--pad-x);
+  padding:       clamp(64px, 8vw, 96px) var(--pad-x);
   border-bottom: 0.5px solid var(--rule);
 }
 
@@ -1420,7 +1420,7 @@ button { cursor: pointer; font-family: inherit; }
 }
 
 .what-we-do__head {
-  margin-bottom: clamp(64px, 8vw, 96px);
+  margin-bottom: clamp(40px, 5vw, 56px);
 }
 
 .what-we-do__heading {
@@ -1440,7 +1440,7 @@ button { cursor: pointer; font-family: inherit; }
   display:               grid;
   grid-template-columns: 64px 1fr;
   gap:                   0 clamp(32px, 5vw, 64px);
-  padding:               68px 0;
+  padding:               52px 0;
   border-bottom:         0.5px solid var(--rule);
   align-items:           start;
 }
@@ -1602,7 +1602,7 @@ button { cursor: pointer; font-family: inherit; }
 
 .svc-page__item {
   border-bottom: 0.5px solid var(--rule);
-  padding:       clamp(80px, 11vw, 128px) var(--pad-x);
+  padding:       clamp(60px, 8vw, 96px) var(--pad-x);
 }
 
 .svc-page__item-inner {
@@ -1707,7 +1707,7 @@ button { cursor: pointer; font-family: inherit; }
 .svc-section-head__inner {
   max-width: var(--max);
   margin:    0 auto;
-  padding:   52px var(--pad-x) 44px;
+  padding:   36px var(--pad-x) 28px;
 }
 
 /* ── Sectors ── */
@@ -1821,7 +1821,7 @@ button { cursor: pointer; font-family: inherit; }
 }
 
 .process-step {
-  padding:       80px 0;
+  padding:       60px 0;
   border-bottom: 0.5px solid var(--rule);
 }
 .process-step:first-child {
@@ -1832,7 +1832,7 @@ button { cursor: pointer; font-family: inherit; }
   display:      flex;
   align-items:  baseline;
   gap:          32px;
-  margin-bottom: 40px;
+  margin-bottom: 28px;
 }
 
 .process-step__num {
@@ -1921,7 +1921,7 @@ button { cursor: pointer; font-family: inherit; }
 /* ── Enquire page: full-height contact ── */
 .contact--page {
   min-height: calc(100vh - 80px);
-  padding-top: calc(var(--pad-y) + 80px);
+  padding-top: calc(clamp(40px, 5vw, 56px) + 80px);
 }
 
 /* Subtle texture overlay on enquire page */
@@ -2037,7 +2037,7 @@ button { cursor: pointer; font-family: inherit; }
    HOMEPAGE — PROCESS PREVIEW
 ══════════════════════════════════════════════════════ */
 .process-preview {
-  padding:       clamp(96px, 13vw, 152px) var(--pad-x);
+  padding:       clamp(72px, 9vw, 104px) var(--pad-x);
   background:    var(--white);
   border-top:    0.5px solid var(--rule);
   border-bottom: 0.5px solid var(--rule);
@@ -2108,7 +2108,7 @@ button { cursor: pointer; font-family: inherit; }
 
 .about-imgbreak {
   overflow:   hidden;
-  height:     clamp(440px, 64vh, 720px);
+  height:     clamp(360px, 48vh, 520px);
 }
 .about-imgbreak img {
   width:            100%;
@@ -2119,7 +2119,7 @@ button { cursor: pointer; font-family: inherit; }
 }
 
 .about-values-section {
-  padding:       clamp(80px, 11vw, 128px) var(--pad-x);
+  padding:       clamp(64px, 8vw, 96px) var(--pad-x);
   border-top:    0.5px solid var(--rule);
   border-bottom: 0.5px solid var(--rule);
 }
@@ -2156,7 +2156,7 @@ button { cursor: pointer; font-family: inherit; }
    SERVICES PAGE — INLINE IMAGE BREAKS + SECTORS
 ══════════════════════════════════════════════════════ */
 .svc-imgbreak {
-  height:     clamp(440px, 62vh, 720px);
+  height:     clamp(360px, 48vh, 520px);
   overflow:   hidden;
   border-top: 0.5px solid var(--rule);
 }
@@ -2252,7 +2252,7 @@ button { cursor: pointer; font-family: inherit; }
 }
 
 .process-fullimg {
-  height:     clamp(520px, 72vh, 840px);
+  height:     clamp(400px, 52vh, 600px);
   overflow:   hidden;
   border-top: 0.5px solid var(--rule);
 }
@@ -2274,7 +2274,7 @@ button { cursor: pointer; font-family: inherit; }
   margin:    0 auto;
 }
 .process-steps-section__head {
-  margin-bottom: clamp(64px, 8vw, 96px);
+  margin-bottom: clamp(48px, 6vw, 64px);
 }
 .process-steps-section__heading {
   font-family:    var(--fd);
