@@ -68,12 +68,13 @@
   }
 
   function tick() {
+    if (window.innerWidth < 768) { ticking = false; return; }
     if (breakEl) {
-      const y = calcOffset(breakEl, 110);
+      const y = calcOffset(breakEl, 80);
       if (y !== null) breakEl.style.transform = `translateY(${y}px)`;
     }
     if (stmtEl) {
-      const y = calcOffset(stmtEl, 80);
+      const y = calcOffset(stmtEl, 60);
       if (y !== null) stmtEl.style.transform = `translateY(${y}px)`;
     }
     ticking = false;

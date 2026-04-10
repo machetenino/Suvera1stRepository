@@ -96,9 +96,9 @@ button { cursor: pointer; font-family: inherit; }
   text-transform: uppercase;
   padding:        14px 38px;
   border:         0.5px solid transparent;
-  transition:     background var(--ease) 0.25s,
-                  color      var(--ease) 0.25s,
-                  border-color var(--ease) 0.25s;
+  transition:     background 0.28s ease,
+                  color      0.28s ease,
+                  border-color 0.28s ease;
 }
 
 .btn--outline {
@@ -133,11 +133,11 @@ button { cursor: pointer; font-family: inherit; }
   animation: fadeUp var(--dur) var(--ease) forwards;
 }
 .fade-in[data-d="0"] { animation-delay: 0.10s; }
-.fade-in[data-d="1"] { animation-delay: 0.45s; }
-.fade-in[data-d="2"] { animation-delay: 0.80s; }
-.fade-in[data-d="3"] { animation-delay: 1.15s; }
-.fade-in[data-d="4"] { animation-delay: 1.55s; }
-.fade-in[data-d="5"] { animation-delay: 2.00s; }
+.fade-in[data-d="1"] { animation-delay: 0.22s; }
+.fade-in[data-d="2"] { animation-delay: 0.34s; }
+.fade-in[data-d="3"] { animation-delay: 0.46s; }
+.fade-in[data-d="4"] { animation-delay: 0.58s; }
+.fade-in[data-d="5"] { animation-delay: 0.70s; }
 
 /* Scroll reveal */
 .reveal {
@@ -156,7 +156,7 @@ button { cursor: pointer; font-family: inherit; }
 }
 
 @keyframes heroZoom {
-  from { transform: scale(1.08); }
+  from { transform: scale(1.03); }
   to   { transform: scale(1.00); }
 }
 
@@ -1518,7 +1518,10 @@ button { cursor: pointer; font-family: inherit; }
   object-fit:       cover;
   object-position:  center 35%;
   display:          block;
-  transition:       transform 0.6s var(--ease);
+  transition:       transform 0.7s var(--ease);
+}
+.svc-img3__item:hover img {
+  transform: scale(1.02);
 }
 
 @media (max-width: 640px) {
@@ -2078,6 +2081,11 @@ button { cursor: pointer; font-family: inherit; }
   aspect-ratio:     4 / 5;
   object-fit:       cover;
   object-position:  center 25%;
+  transition:       transform 0.7s var(--ease);
+  display:          block;
+}
+.process-preview__media:hover img {
+  transform: scale(1.02);
 }
 
 
@@ -2332,5 +2340,34 @@ button { cursor: pointer; font-family: inherit; }
   }
   .sectors-section__item:nth-last-child(2):nth-child(2n+1) {
     border-bottom: 0.5px solid var(--rule);
+  }
+
+  /* Reduce motion intensity on mobile */
+  .reveal      { transform: translateY(12px); }
+  .fade-in     { transform: translateY(12px); }
+}
+
+
+/* ══════════════════════════════════════════════════════
+   REDUCED MOTION
+══════════════════════════════════════════════════════ */
+@media (prefers-reduced-motion: reduce) {
+  .fade-in {
+    transform:          none;
+    animation:          none;
+    opacity:            1;
+  }
+
+  .reveal {
+    transform:  none;
+    transition: opacity 0.4s ease;
+  }
+  .reveal.in { transform: none; }
+
+  .hero__img { animation: none; }
+
+  .svc-img3__item:hover img,
+  .process-preview__media:hover img {
+    transform: none;
   }
 }
