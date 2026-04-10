@@ -27,7 +27,7 @@
   /* Layout */
   --max:        1200px;
   --pad-x:      clamp(28px, 5.5vw, 72px);
-  --pad-y:      clamp(144px, 18vw, 208px);
+  --pad-y:      clamp(64px, 9vw, 112px);
   --gap:        24px;
 
   /* Motion */
@@ -243,8 +243,8 @@ button { cursor: pointer; font-family: inherit; }
 ══════════════════════════════════════════════════════ */
 .hero {
   position:        relative;
-  height:          100svh;
-  min-height:      800px;
+  height:          80vh;
+  min-height:      520px;
   display:         flex;
   flex-direction:  column;
   justify-content: flex-end;
@@ -282,7 +282,7 @@ button { cursor: pointer; font-family: inherit; }
 .hero__content {
   position:   relative;
   z-index:    2;
-  padding:    0 var(--pad-x) clamp(96px, 13vw, 152px);
+  padding:    0 var(--pad-x) clamp(64px, 9vw, 104px);
   max-width:  min(1040px, 96vw);
 }
 
@@ -297,7 +297,7 @@ button { cursor: pointer; font-family: inherit; }
   text-indent:    0.20em;
   color:          var(--white);
   line-height:    1;
-  margin-bottom:  clamp(48px, 8vw, 80px);
+  margin-bottom:  clamp(32px, 5vw, 56px);
 }
 
 .hero__eyebrow {
@@ -335,7 +335,7 @@ button { cursor: pointer; font-family: inherit; }
 
 .hero__tagline {
   display:        block;
-  margin-top:     80px;
+  margin-top:     48px;
   font-family:    var(--fb);
   font-size:      11px;
   font-weight:    300;
@@ -349,7 +349,7 @@ button { cursor: pointer; font-family: inherit; }
    02  INTRO
 ══════════════════════════════════════════════════════ */
 .intro {
-  padding:       clamp(144px, 20vw, 240px) var(--pad-x);
+  padding:       clamp(96px, 13vw, 152px) var(--pad-x);
   border-bottom: 0.5px solid var(--rule);
 }
 
@@ -364,7 +364,7 @@ button { cursor: pointer; font-family: inherit; }
 
 .intro__display {
   font-family:    var(--fd);
-  font-size:      clamp(24px, 3.2vw, 40px);
+  font-size:      clamp(26px, 3.5vw, 44px);
   font-weight:    300;
   line-height:    1.55;
   letter-spacing: 0.04em;
@@ -755,7 +755,7 @@ button { cursor: pointer; font-family: inherit; }
 ══════════════════════════════════════════════════════ */
 .statement {
   position: relative;
-  padding:  clamp(160px, 22vw, 280px) var(--pad-x);
+  padding:  clamp(112px, 16vw, 192px) var(--pad-x);
   display:  flex;
   align-items: center;
   justify-content: center;
@@ -1185,6 +1185,25 @@ button { cursor: pointer; font-family: inherit; }
     flex-wrap:      wrap;
     gap:            20px 32px;
   }
+
+  /* Hero */
+  .hero {
+    height:     70vh;
+    min-height: 480px;
+  }
+
+  /* Section padding — mobile */
+  .intro,
+  .what-we-do,
+  .process-preview        { padding: 64px var(--pad-x); }
+  .contact-cta            { padding: 56px var(--pad-x); }
+  .about-intro,
+  .about-values-section,
+  .sectors-section,
+  .process-intro,
+  .process-steps-section  { padding: 64px var(--pad-x); }
+  .svc-page__item         { padding: 60px var(--pad-x); }
+  .statement              { padding: 80px var(--pad-x); }
 }
 
 
@@ -1391,7 +1410,7 @@ button { cursor: pointer; font-family: inherit; }
    HOME — WHAT WE DO
 ══════════════════════════════════════════════════════ */
 .what-we-do {
-  padding:       clamp(144px, 18vw, 216px) var(--pad-x);
+  padding:       clamp(96px, 13vw, 152px) var(--pad-x);
   border-bottom: 0.5px solid var(--rule);
 }
 
@@ -1446,7 +1465,7 @@ button { cursor: pointer; font-family: inherit; }
 }
 
 .wwd-item__copy {
-  font-size:   14px;
+  font-size:   15px;
   font-weight: 300;
   line-height: 1.82;
   color:       var(--mid);
@@ -1504,7 +1523,7 @@ button { cursor: pointer; font-family: inherit; }
    HOME — CONTACT CTA
 ══════════════════════════════════════════════════════ */
 .contact-cta {
-  padding:    clamp(112px, 15vw, 168px) var(--pad-x);
+  padding:    clamp(80px, 11vw, 120px) var(--pad-x);
   border-top: 0.5px solid var(--rule);
 }
 
@@ -1538,7 +1557,7 @@ button { cursor: pointer; font-family: inherit; }
 
 .svc-page__item {
   border-bottom: 0.5px solid var(--rule);
-  padding:       clamp(96px, 13vw, 160px) var(--pad-x);
+  padding:       clamp(80px, 11vw, 128px) var(--pad-x);
 }
 
 .svc-page__item-inner {
@@ -1618,6 +1637,7 @@ button { cursor: pointer; font-family: inherit; }
   letter-spacing: 0.08em;
   text-transform: uppercase;
   line-height:    1.25;
+  margin-bottom:  20px;
 }
 
 .svc-page__body {
@@ -1971,7 +1991,7 @@ button { cursor: pointer; font-family: inherit; }
    HOMEPAGE — PROCESS PREVIEW
 ══════════════════════════════════════════════════════ */
 .process-preview {
-  padding:       clamp(128px, 16vw, 192px) var(--pad-x);
+  padding:       clamp(96px, 13vw, 152px) var(--pad-x);
   background:    var(--white);
   border-top:    0.5px solid var(--rule);
   border-bottom: 0.5px solid var(--rule);
@@ -2021,7 +2041,7 @@ button { cursor: pointer; font-family: inherit; }
    ABOUT PAGE — REBUILT SECTIONS
 ══════════════════════════════════════════════════════ */
 .about-intro {
-  padding:       clamp(112px, 15vw, 176px) var(--pad-x);
+  padding:       clamp(80px, 11vw, 128px) var(--pad-x);
   border-bottom: 0.5px solid var(--rule);
   background:    var(--white);
 }
@@ -2053,7 +2073,7 @@ button { cursor: pointer; font-family: inherit; }
 }
 
 .about-values-section {
-  padding:       clamp(112px, 15vw, 176px) var(--pad-x);
+  padding:       clamp(80px, 11vw, 128px) var(--pad-x);
   border-top:    0.5px solid var(--rule);
   border-bottom: 0.5px solid var(--rule);
 }
@@ -2104,7 +2124,7 @@ button { cursor: pointer; font-family: inherit; }
 
 /* Sectors — updated to text-only two-col list */
 .sectors-section {
-  padding:       clamp(112px, 15vw, 176px) var(--pad-x);
+  padding:       clamp(80px, 11vw, 128px) var(--pad-x);
   border-top:    0.5px solid var(--rule);
   border-bottom: 0.5px solid var(--rule);
 }
@@ -2170,7 +2190,7 @@ button { cursor: pointer; font-family: inherit; }
    PROCESS PAGE — REBUILT SECTIONS
 ══════════════════════════════════════════════════════ */
 .process-intro {
-  padding:       clamp(112px, 15vw, 176px) var(--pad-x);
+  padding:       clamp(80px, 11vw, 128px) var(--pad-x);
   border-bottom: 0.5px solid var(--rule);
   background:    var(--white);
 }
@@ -2199,7 +2219,7 @@ button { cursor: pointer; font-family: inherit; }
 }
 
 .process-steps-section {
-  padding:       clamp(112px, 15vw, 176px) var(--pad-x);
+  padding:       clamp(80px, 11vw, 128px) var(--pad-x);
   border-top:    0.5px solid var(--rule);
   border-bottom: 0.5px solid var(--rule);
 }
