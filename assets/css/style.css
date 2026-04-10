@@ -27,7 +27,7 @@
   /* Layout */
   --max:        1200px;
   --pad-x:      clamp(28px, 5.5vw, 72px);
-  --pad-y:      clamp(120px, 15vw, 168px);
+  --pad-y:      clamp(144px, 18vw, 208px);
   --gap:        24px;
 
   /* Motion */
@@ -133,10 +133,11 @@ button { cursor: pointer; font-family: inherit; }
   animation: fadeUp var(--dur) var(--ease) forwards;
 }
 .fade-in[data-d="0"] { animation-delay: 0.10s; }
-.fade-in[data-d="1"] { animation-delay: 0.40s; }
-.fade-in[data-d="2"] { animation-delay: 0.72s; }
-.fade-in[data-d="3"] { animation-delay: 1.04s; }
-.fade-in[data-d="4"] { animation-delay: 1.50s; }
+.fade-in[data-d="1"] { animation-delay: 0.45s; }
+.fade-in[data-d="2"] { animation-delay: 0.80s; }
+.fade-in[data-d="3"] { animation-delay: 1.15s; }
+.fade-in[data-d="4"] { animation-delay: 1.55s; }
+.fade-in[data-d="5"] { animation-delay: 2.00s; }
 
 /* Scroll reveal */
 .reveal {
@@ -193,12 +194,12 @@ button { cursor: pointer; font-family: inherit; }
 
 .header__logo {
   font-family:    var(--fb);
-  font-size:      10px;
+  font-size:      11px;
   font-weight:    300;
-  letter-spacing: 0.55em;
+  letter-spacing: 0.22em;
   color:          var(--white);
   mix-blend-mode: difference;
-  text-indent:    0.55em;
+  text-indent:    0.22em;
 }
 
 .header__nav {
@@ -285,6 +286,20 @@ button { cursor: pointer; font-family: inherit; }
   max-width:  min(1040px, 96vw);
 }
 
+/* Hero wordmark — dominant brand mark */
+.hero__wordmark {
+  display:        block;
+  font-family:    var(--fd);
+  font-size:      clamp(52px, 9vw, 96px);
+  font-weight:    300;
+  letter-spacing: 0.20em;
+  text-transform: uppercase;
+  text-indent:    0.20em;
+  color:          var(--white);
+  line-height:    1;
+  margin-bottom:  clamp(48px, 8vw, 80px);
+}
+
 .hero__eyebrow {
   display:        block;
   font-family:    var(--fb);
@@ -298,12 +313,12 @@ button { cursor: pointer; font-family: inherit; }
 
 .hero__headline {
   font-family:    var(--fd);
-  font-size:      clamp(44px, 7vw, 88px);
+  font-size:      clamp(28px, 4vw, 52px);
   font-weight:    300;
   letter-spacing: 0.15em;
   text-transform: uppercase;
-  line-height:    1.18;
-  color:          var(--white);
+  line-height:    1.5;
+  color:          rgba(255, 255, 255, 0.72);
   margin-bottom:  40px;
 }
 
@@ -311,9 +326,9 @@ button { cursor: pointer; font-family: inherit; }
   font-family:   var(--fb);
   font-size:     14px;
   font-weight:   300;
-  line-height:   1.82;
+  line-height:   1.90;
   color:         rgba(255, 255, 255, 0.40);
-  max-width:     520px;
+  max-width:     580px;
   margin-bottom: 52px;
   letter-spacing: 0.01em;
 }
@@ -334,7 +349,7 @@ button { cursor: pointer; font-family: inherit; }
    02  INTRO
 ══════════════════════════════════════════════════════ */
 .intro {
-  padding:       clamp(128px, 18vw, 208px) var(--pad-x);
+  padding:       clamp(144px, 20vw, 240px) var(--pad-x);
   border-bottom: 0.5px solid var(--rule);
 }
 
@@ -349,10 +364,10 @@ button { cursor: pointer; font-family: inherit; }
 
 .intro__display {
   font-family:    var(--fd);
-  font-size:      clamp(22px, 2.8vw, 34px);
-  font-weight:    400;
+  font-size:      clamp(24px, 3.2vw, 40px);
+  font-weight:    300;
   line-height:    1.55;
-  letter-spacing: 0.02em;
+  letter-spacing: 0.04em;
   color:          var(--black);
 }
 
@@ -880,12 +895,12 @@ button { cursor: pointer; font-family: inherit; }
 
 .contact__heading {
   font-family:    var(--fd);
-  font-size:      clamp(28px, 3.8vw, 48px);
+  font-size:      clamp(32px, 5vw, 64px);
   font-weight:    300;
   letter-spacing: 0.08em;
   text-transform: uppercase;
-  line-height:    1.22;
-  margin-bottom:  28px;
+  line-height:    1.18;
+  margin-bottom:  36px;
 }
 
 .contact__intro {
@@ -1065,10 +1080,10 @@ button { cursor: pointer; font-family: inherit; }
 
 .footer__logo {
   font-family:    var(--fb);
-  font-size:      10px;
+  font-size:      11px;
   font-weight:    300;
-  letter-spacing: 0.55em;
-  text-indent:    0.55em;
+  letter-spacing: 0.22em;
+  text-indent:    0.22em;
   color:          var(--white);
 }
 
@@ -1319,11 +1334,11 @@ button { cursor: pointer; font-family: inherit; }
 
 .page-hero__heading {
   font-family:    var(--fd);
-  font-size:      clamp(36px, 5.5vw, 72px);
+  font-size:      clamp(40px, 6.5vw, 88px);
   font-weight:    300;
   letter-spacing: 0.08em;
   text-transform: uppercase;
-  line-height:    1.22;
+  line-height:    1.15;
   color:          var(--white);
   margin-bottom:  36px;
 }
@@ -1375,7 +1390,7 @@ button { cursor: pointer; font-family: inherit; }
    HOME — WHAT WE DO
 ══════════════════════════════════════════════════════ */
 .what-we-do {
-  padding:       clamp(128px, 17vw, 200px) var(--pad-x);
+  padding:       clamp(144px, 18vw, 216px) var(--pad-x);
   border-bottom: 0.5px solid var(--rule);
 }
 
@@ -1390,8 +1405,8 @@ button { cursor: pointer; font-family: inherit; }
 
 .what-we-do__heading {
   font-family:    var(--fd);
-  font-size:      clamp(26px, 3.2vw, 42px);
-  font-weight:    400;
+  font-size:      clamp(28px, 3.8vw, 52px);
+  font-weight:    300;
   letter-spacing: 0.08em;
   text-transform: uppercase;
   line-height:    1.2;
@@ -1488,7 +1503,7 @@ button { cursor: pointer; font-family: inherit; }
    HOME — CONTACT CTA
 ══════════════════════════════════════════════════════ */
 .contact-cta {
-  padding:    clamp(96px, 13vw, 144px) var(--pad-x);
+  padding:    clamp(112px, 15vw, 168px) var(--pad-x);
   border-top: 0.5px solid var(--rule);
 }
 
@@ -1504,7 +1519,7 @@ button { cursor: pointer; font-family: inherit; }
 
 .contact-cta__text {
   font-family:    var(--fd);
-  font-size:      clamp(18px, 2.2vw, 28px);
+  font-size:      clamp(20px, 2.8vw, 36px);
   font-weight:    300;
   letter-spacing: 0.10em;
   text-transform: uppercase;
@@ -1522,7 +1537,7 @@ button { cursor: pointer; font-family: inherit; }
 
 .svc-page__item {
   border-bottom: 0.5px solid var(--rule);
-  padding:       clamp(80px, 11vw, 140px) var(--pad-x);
+  padding:       clamp(96px, 13vw, 160px) var(--pad-x);
 }
 
 .svc-page__item-inner {
@@ -1597,11 +1612,11 @@ button { cursor: pointer; font-family: inherit; }
 
 .svc-page__title {
   font-family:    var(--fd);
-  font-size:      clamp(22px, 2.8vw, 36px);
-  font-weight:    400;
-  letter-spacing: 0.06em;
+  font-size:      clamp(24px, 3.2vw, 42px);
+  font-weight:    300;
+  letter-spacing: 0.08em;
   text-transform: uppercase;
-  line-height:    1.3;
+  line-height:    1.25;
 }
 
 .svc-page__body {
@@ -1613,10 +1628,10 @@ button { cursor: pointer; font-family: inherit; }
 .svc-page__body p {
   font-size:      14px;
   font-weight:    300;
-  line-height:    1.88;
+  line-height:    1.95;
   color:          var(--mid);
   letter-spacing: 0.01em;
-  max-width:      640px;
+  max-width:      680px;
 }
 
 /* ── Services page section label row ── */
@@ -1776,9 +1791,9 @@ button { cursor: pointer; font-family: inherit; }
 .process-step__copy {
   font-size:      14px;
   font-weight:    300;
-  line-height:    1.88;
+  line-height:    1.95;
   color:          var(--mid);
-  max-width:      600px;
+  max-width:      680px;
   letter-spacing: 0.01em;
 }
 
@@ -1955,7 +1970,7 @@ button { cursor: pointer; font-family: inherit; }
    HOMEPAGE — PROCESS PREVIEW
 ══════════════════════════════════════════════════════ */
 .process-preview {
-  padding:       clamp(112px, 14vw, 160px) var(--pad-x);
+  padding:       clamp(128px, 16vw, 192px) var(--pad-x);
   background:    var(--white);
   border-top:    0.5px solid var(--rule);
   border-bottom: 0.5px solid var(--rule);
@@ -1972,7 +1987,7 @@ button { cursor: pointer; font-family: inherit; }
 
 .process-preview__heading {
   font-family:    var(--fd);
-  font-size:      clamp(26px, 3.2vw, 44px);
+  font-size:      clamp(28px, 3.8vw, 52px);
   font-weight:    300;
   letter-spacing: 0.08em;
   text-transform: uppercase;
@@ -2005,12 +2020,12 @@ button { cursor: pointer; font-family: inherit; }
    ABOUT PAGE — REBUILT SECTIONS
 ══════════════════════════════════════════════════════ */
 .about-intro {
-  padding:       clamp(96px, 13vw, 144px) var(--pad-x);
+  padding:       clamp(112px, 15vw, 176px) var(--pad-x);
   border-bottom: 0.5px solid var(--rule);
   background:    var(--white);
 }
 .about-intro__inner {
-  max-width: 680px;
+  max-width: 700px;
   margin:    0 auto;
 }
 .about-intro p {
@@ -2036,7 +2051,7 @@ button { cursor: pointer; font-family: inherit; }
 }
 
 .about-values-section {
-  padding:       clamp(96px, 13vw, 144px) var(--pad-x);
+  padding:       clamp(112px, 15vw, 176px) var(--pad-x);
   border-top:    0.5px solid var(--rule);
   border-bottom: 0.5px solid var(--rule);
 }
@@ -2087,7 +2102,7 @@ button { cursor: pointer; font-family: inherit; }
 
 /* Sectors — updated to text-only two-col list */
 .sectors-section {
-  padding:       clamp(96px, 13vw, 144px) var(--pad-x);
+  padding:       clamp(112px, 15vw, 176px) var(--pad-x);
   border-top:    0.5px solid var(--rule);
   border-bottom: 0.5px solid var(--rule);
 }
@@ -2153,12 +2168,12 @@ button { cursor: pointer; font-family: inherit; }
    PROCESS PAGE — REBUILT SECTIONS
 ══════════════════════════════════════════════════════ */
 .process-intro {
-  padding:       clamp(96px, 13vw, 144px) var(--pad-x);
+  padding:       clamp(112px, 15vw, 176px) var(--pad-x);
   border-bottom: 0.5px solid var(--rule);
   background:    var(--white);
 }
 .process-intro__inner {
-  max-width: 680px;
+  max-width: 700px;
   margin:    0 auto;
 }
 .process-intro p {
@@ -2182,7 +2197,7 @@ button { cursor: pointer; font-family: inherit; }
 }
 
 .process-steps-section {
-  padding:       clamp(96px, 13vw, 144px) var(--pad-x);
+  padding:       clamp(112px, 15vw, 176px) var(--pad-x);
   border-top:    0.5px solid var(--rule);
   border-bottom: 0.5px solid var(--rule);
 }
@@ -2195,7 +2210,7 @@ button { cursor: pointer; font-family: inherit; }
 }
 .process-steps-section__heading {
   font-family:    var(--fd);
-  font-size:      clamp(26px, 3.2vw, 44px);
+  font-size:      clamp(28px, 3.8vw, 52px);
   font-weight:    300;
   letter-spacing: 0.08em;
   text-transform: uppercase;
