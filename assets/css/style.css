@@ -48,6 +48,7 @@
 html {
   scroll-behavior: smooth;
   font-size: 16px;
+  overflow-x: hidden;
 }
 
 body {
@@ -1385,6 +1386,7 @@ button { cursor: pointer; font-family: inherit; }
   color:          var(--white);
   margin-bottom:  28px;
   overflow-wrap:  break-word;
+  word-break:     break-word;
 }
 
 .page-hero__copy {
