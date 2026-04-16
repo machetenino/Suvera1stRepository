@@ -1377,13 +1377,14 @@ button { cursor: pointer; font-family: inherit; }
 
 .page-hero__heading {
   font-family:    var(--fd);
-  font-size:      clamp(40px, 6.5vw, 88px);
+  font-size:      clamp(28px, 8vw, 88px);
   font-weight:    300;
   letter-spacing: 0.08em;
   text-transform: uppercase;
   line-height:    1.15;
   color:          var(--white);
   margin-bottom:  28px;
+  overflow-wrap:  break-word;
 }
 
 .page-hero__copy {
@@ -1394,6 +1395,12 @@ button { cursor: pointer; font-family: inherit; }
   letter-spacing: 0.01em;
   color:          rgba(255, 255, 255, 0.38);
   max-width:      560px;
+}
+
+@media (max-width: 640px) {
+  .page-hero__heading {
+    letter-spacing: 0.04em;
+  }
 }
 
 /* ── Text link ── */
