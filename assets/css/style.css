@@ -1102,6 +1102,20 @@ button { cursor: pointer; font-family: inherit; }
   color:          rgba(255, 255, 255, 0.22);
 }
 
+.footer__details {
+  display:        flex;
+  flex-direction: column;
+  gap:            8px;
+}
+.footer__details span {
+  font-family:    var(--fb);
+  font-size:      10px;
+  font-weight:    300;
+  letter-spacing: 0.10em;
+  color:          rgba(255, 255, 255, 0.28);
+  line-height:    1.65;
+}
+
 
 
 /* ══════════════════════════════════════════════════════
