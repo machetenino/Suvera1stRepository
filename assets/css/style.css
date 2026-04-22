@@ -213,26 +213,28 @@ button { cursor: pointer; font-family: inherit; }
 .header__brand {
   display:        flex;
   flex-direction: column;
-  gap:            5px;
-  mix-blend-mode: difference;
+  gap:            4px;
 }
 
 .header__logo {
+  display:        block;
   font-family:    var(--fb);
   font-size:      18px;
   font-weight:    400;
   letter-spacing: 0.42em;
   color:          var(--white);
+  mix-blend-mode: difference;
   text-indent:    0.42em;
 }
 
 .header__tagline {
+  display:        block;
   font-family:    var(--fb);
   font-size:      9px;
   font-weight:    300;
   letter-spacing: 0.20em;
   text-transform: uppercase;
-  color:          rgba(255, 255, 255, 0.45);
+  color:          rgba(255, 255, 255, 0.50);
   text-indent:    0.20em;
 }
 
@@ -1114,7 +1116,7 @@ button { cursor: pointer; font-family: inherit; }
   font-size:      10px;
   font-weight:    300;
   letter-spacing: 0.08em;
-  color:          rgba(255, 255, 255, 0.30);
+  color:          rgba(255, 255, 255, 0.55);
   line-height:    1.65;
 }
 
