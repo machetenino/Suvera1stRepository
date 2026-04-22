@@ -1191,12 +1191,14 @@ button { cursor: pointer; font-family: inherit; }
 
   .footer__inner {
     flex-direction: column;
-    align-items:    flex-start;
+    align-items:    center;
+    text-align:     center;
   }
   .footer__nav {
-    flex-direction: row;
-    flex-wrap:      wrap;
-    gap:            20px 32px;
+    flex-direction:  row;
+    flex-wrap:       wrap;
+    gap:             20px 32px;
+    justify-content: center;
   }
 
   /* Hero */
