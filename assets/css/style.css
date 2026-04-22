@@ -210,14 +210,30 @@ button { cursor: pointer; font-family: inherit; }
   margin:          0 auto;
 }
 
+.header__brand {
+  display:        flex;
+  flex-direction: column;
+  gap:            5px;
+  mix-blend-mode: difference;
+}
+
 .header__logo {
   font-family:    var(--fb);
   font-size:      18px;
   font-weight:    400;
   letter-spacing: 0.42em;
   color:          var(--white);
-  mix-blend-mode: difference;
   text-indent:    0.42em;
+}
+
+.header__tagline {
+  font-family:    var(--fb);
+  font-size:      9px;
+  font-weight:    300;
+  letter-spacing: 0.20em;
+  text-transform: uppercase;
+  color:          rgba(255, 255, 255, 0.45);
+  text-indent:    0.20em;
 }
 
 .header__nav {
@@ -1093,13 +1109,13 @@ button { cursor: pointer; font-family: inherit; }
   color:          var(--white);
 }
 
-.footer__tagline {
-  font-family:    var(--fd);
+.footer__copyright {
+  font-family:    var(--fb);
   font-size:      10px;
   font-weight:    300;
-  letter-spacing: 0.20em;
-  text-transform: uppercase;
-  color:          rgba(255, 255, 255, 0.22);
+  letter-spacing: 0.08em;
+  color:          rgba(255, 255, 255, 0.30);
+  line-height:    1.65;
 }
 
 .footer__details {
