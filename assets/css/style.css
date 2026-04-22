@@ -304,19 +304,6 @@ button { cursor: pointer; font-family: inherit; }
   max-width:  min(1040px, 96vw);
 }
 
-/* Hero wordmark — subdued label, logo in header is the brand anchor */
-.hero__wordmark {
-  display:        block;
-  font-family:    var(--fd);
-  font-size:      11px;
-  font-weight:    400;
-  letter-spacing: 0.38em;
-  text-transform: uppercase;
-  text-indent:    0.38em;
-  color:          rgba(255, 255, 255, 0.45);
-  line-height:    1;
-  margin-bottom:  clamp(20px, 3vw, 28px);
-}
 
 .hero__eyebrow {
   display:        block;
