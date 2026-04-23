@@ -15,7 +15,7 @@
   --white:      #FFFFFF;
   --off-white:  #FAF9F7;
   --rule:       #E2E2DE;
-  --muted:      #999896;
+  --muted:      #6B6B6B;
   --mid:        #555553;
   --light:      #CCCCCA;
   --xlight:     #E8E8E5;
@@ -987,9 +987,9 @@ button { cursor: pointer; font-family: inherit; }
 .form-field label {
   display:        block;
   font-family:    var(--fb);
-  font-size:      9px;
+  font-size:      12px;
   font-weight:    400;
-  letter-spacing: 0.20em;
+  letter-spacing: 0.18em;
   text-transform: uppercase;
   color:          var(--muted);
   margin-bottom:  12px;
@@ -1665,7 +1665,7 @@ button { cursor: pointer; font-family: inherit; }
   max-width:             var(--max);
   margin:                0 auto;
   display:               grid;
-  grid-template-columns: 280px 1fr;
+  grid-template-columns: 240px 1fr;
   gap:                   clamp(64px, 10vw, 144px);
   align-items:           start;
 }
@@ -1688,9 +1688,17 @@ button { cursor: pointer; font-family: inherit; }
   padding:    var(--pad-y) var(--pad-x) var(--pad-y) clamp(40px, 5vw, 72px);
   max-width:  none;
   display:    grid;
-  grid-template-columns: 280px 1fr;
+  grid-template-columns: 240px 1fr;
   gap:        clamp(40px, 5vw, 72px);
   align-items: start;
+}
+
+@media (max-width: 1180px) and (min-width: 1025px) {
+  .svc-page__item-inner,
+  .svc-page__item--image-left .svc-page__item-inner {
+    grid-template-columns: 200px 1fr;
+    gap: clamp(40px, 5vw, 72px);
+  }
 }
 
 .svc-page__image {
@@ -1958,8 +1966,8 @@ button { cursor: pointer; font-family: inherit; }
 
 .add-scope__title {
   font-family:    var(--fd);
-  font-size:      clamp(13px, 1.4vw, 16px);
-  font-weight:    400;
+  font-size:      clamp(15px, 1.6vw, 18px);
+  font-weight:    500;
   letter-spacing: 0.12em;
   text-transform: uppercase;
   line-height:    1.4;
@@ -1977,8 +1985,8 @@ button { cursor: pointer; font-family: inherit; }
 /* ── Enquire page: full-height contact ── */
 .contact--page {
   min-height: calc(100vh - 80px);
-  padding-top: calc(clamp(40px, 5vw, 56px) + 80px);
-  padding-bottom: clamp(60px, 7.5vw, 88px);
+  padding-top: calc(clamp(24px, 4vw, 48px) + 56px);
+  padding-bottom: clamp(40px, 6vw, 72px);
 }
 
 /* Subtle texture overlay on enquire page */
@@ -2086,6 +2094,11 @@ button { cursor: pointer; font-family: inherit; }
 
   .process-step__copy {
     max-width: 100%;
+  }
+
+  .contact--page {
+    padding-top: calc(24px + 56px);
+    min-height: auto;
   }
 }
 
