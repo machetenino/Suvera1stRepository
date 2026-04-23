@@ -372,7 +372,7 @@ button { cursor: pointer; font-family: inherit; }
    02  INTRO
 ══════════════════════════════════════════════════════ */
 .intro {
-  padding:       clamp(36px, 5vw, 56px) var(--pad-x);
+  padding:       clamp(56px, 7vw, 88px) var(--pad-x);
   border-bottom: 0.5px solid var(--rule);
 }
 
@@ -1082,7 +1082,7 @@ button { cursor: pointer; font-family: inherit; }
 ══════════════════════════════════════════════════════ */
 .footer {
   background:  var(--black);
-  padding:     56px var(--pad-x) 44px;
+  padding:     var(--pad-y) var(--pad-x);
   border-top:  0.5px solid rgba(255, 255, 255, 0.06);
 }
 
@@ -1493,7 +1493,7 @@ button { cursor: pointer; font-family: inherit; }
   display:               grid;
   grid-template-columns: 64px 1fr;
   gap:                   0 clamp(32px, 5vw, 64px);
-  padding:               52px 0;
+  padding:               clamp(40px, 5vw, 64px) 0;
   border-bottom:         0.5px solid var(--rule);
   align-items:           start;
 }
@@ -1895,7 +1895,7 @@ button { cursor: pointer; font-family: inherit; }
 .process-step__head {
   display:      flex;
   align-items:  baseline;
-  gap:          32px;
+  gap:          clamp(20px, 3vw, 40px);
   margin-bottom: 28px;
 }
 
@@ -2311,7 +2311,7 @@ button { cursor: pointer; font-family: inherit; }
    PROCESS PAGE — REBUILT SECTIONS
 ══════════════════════════════════════════════════════ */
 .process-intro {
-  padding:       clamp(32px, 4vw, 48px) var(--pad-x);
+  padding:       clamp(56px, 6.5vw, 80px) var(--pad-x);
   border-bottom: 0.5px solid var(--rule);
   background:    var(--white);
 }
