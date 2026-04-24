@@ -2138,23 +2138,6 @@ button { cursor: pointer; font-family: inherit; }
   max-width:     420px;
 }
 
-.process-preview__media {
-  overflow:     hidden;
-  margin-top:   clamp(48px, 6vw, 80px);
-  margin-left:  calc(-1 * var(--pad-x));
-  margin-right: calc(-1 * var(--pad-x));
-}
-.process-preview__media img {
-  width:           100%;
-  aspect-ratio:    16 / 7;
-  object-fit:      cover;
-  object-position: center 25%;
-  transition:      transform 0.7s var(--ease);
-  display:         block;
-}
-.process-preview__media:hover img {
-  transform: scale(1.02);
-}
 
 
 /* ══════════════════════════════════════════════════════
