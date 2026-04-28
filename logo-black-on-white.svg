@@ -2,18 +2,18 @@
   <defs>
     <style>
       @font-face {
-        font-family: 'JosefinSans';
-        src: url('assets/fonts/josefin-sans-300.ttf') format('truetype');
-        font-weight: 300;
+        font-family: 'TenorSans';
+        src: url('assets/fonts/tenor-sans-400.ttf') format('truetype');
+        font-weight: 400;
       }
     </style>
   </defs>
   <rect width="1200" height="400" fill="#FFFFFF"/>
   <text
-    x="600" y="240"
-    font-family="JosefinSans, 'Josefin Sans', 'Helvetica Neue', sans-serif"
+    x="600" y="245"
+    font-family="TenorSans, 'Tenor Sans', 'Helvetica Neue', sans-serif"
     font-size="120"
-    font-weight="300"
+    font-weight="400"
     fill="#0A0A0A"
     text-anchor="middle"
     letter-spacing="28">SUVERA</text>
