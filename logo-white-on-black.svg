@@ -1,21 +1,16 @@
-<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 260 48" width="260" height="48" role="img" aria-label="Suvera Projects Group">
-  <rect width="260" height="48" fill="#0A0A0A"/>
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 800 200" width="800" height="200" role="img" aria-label="Suvera Projects Group">
+  <defs>
+    <style>
+      @import url('https://fonts.googleapis.com/css2?family=Cormorant+Garamond:wght@300;400&amp;display=swap');
+    </style>
+  </defs>
+  <rect width="800" height="200" fill="#0A0A0A"/>
   <text
-    x="130" y="31"
-    font-family="Raleway, 'Helvetica Neue', Helvetica, Arial, sans-serif"
-    font-size="20"
-    font-weight="300"
+    x="400" y="122"
+    font-family="'Cormorant Garamond', 'Cormorant', Georgia, 'Times New Roman', serif"
+    font-size="80"
+    font-weight="400"
     fill="#FFFFFF"
     text-anchor="middle"
-    letter-spacing="9"
-    dominant-baseline="auto">SUVERA</text>
-  <text
-    x="130" y="43"
-    font-family="'Helvetica Neue', Helvetica, Arial, sans-serif"
-    font-size="7"
-    font-weight="300"
-    fill="#FFFFFF"
-    text-anchor="middle"
-    letter-spacing="3"
-    dominant-baseline="auto">Considered construction.</text>
+    letter-spacing="12">SUVERA</text>
 </svg>
