@@ -23,6 +23,7 @@
   /* Type */
   --fd: 'Inter', system-ui, -apple-system, sans-serif;
   --fb: 'Inter', system-ui, -apple-system, sans-serif;
+  --fl: 'Raleway', 'Helvetica Neue', Helvetica, sans-serif;
 
   /* Layout */
   --max:        1200px;
@@ -218,13 +219,13 @@ button { cursor: pointer; font-family: inherit; }
 
 .header__logo {
   display:        block;
-  font-family:    var(--fb);
-  font-size:      18px;
-  font-weight:    400;
-  letter-spacing: 0.42em;
+  font-family:    var(--fl);
+  font-size:      22px;
+  font-weight:    300;
+  letter-spacing: 0.40em;
   color:          var(--white);
   mix-blend-mode: difference;
-  text-indent:    0.42em;
+  text-indent:    0.40em;
 }
 
 .header__tagline {
