@@ -221,11 +221,11 @@ button { cursor: pointer; font-family: inherit; }
   display:        block;
   font-family:    var(--fl);
   font-size:      22px;
-  font-weight:    300;
-  letter-spacing: 0.40em;
+  font-weight:    400;
+  letter-spacing: 0.38em;
   color:          var(--white);
   mix-blend-mode: difference;
-  text-indent:    0.40em;
+  text-indent:    0.38em;
 }
 
 .header__tagline {
