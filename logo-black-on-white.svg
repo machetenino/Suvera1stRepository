@@ -1,16 +1,20 @@
-<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 800 200" width="800" height="200" role="img" aria-label="Suvera Projects Group">
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1200 400" width="1200" height="400" role="img" aria-label="Suvera Projects Group">
   <defs>
     <style>
-      @import url('https://fonts.googleapis.com/css2?family=Cormorant+Garamond:wght@300;400&amp;display=swap');
+      @font-face {
+        font-family: 'JosefinSans';
+        src: url('assets/fonts/josefin-sans-300.ttf') format('truetype');
+        font-weight: 300;
+      }
     </style>
   </defs>
-  <rect width="800" height="200" fill="#FFFFFF"/>
+  <rect width="1200" height="400" fill="#FFFFFF"/>
   <text
-    x="400" y="122"
-    font-family="'Cormorant Garamond', 'Cormorant', Georgia, 'Times New Roman', serif"
-    font-size="80"
-    font-weight="400"
+    x="600" y="240"
+    font-family="JosefinSans, 'Josefin Sans', 'Helvetica Neue', sans-serif"
+    font-size="120"
+    font-weight="300"
     fill="#0A0A0A"
     text-anchor="middle"
-    letter-spacing="12">SUVERA</text>
+    letter-spacing="28">SUVERA</text>
 </svg>
