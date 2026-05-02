@@ -332,17 +332,17 @@ class ExcelReporter:
         r = 1
         ws.merge_cells(f"A{r}:F{r}")
         c = ws[f"A{r}"]
-        c.value = "PARTITION PLAN — DETAILED EXTRACTION DATA"
+        c.value = "PARTITION PLAN — WALL TYPE QUANTITIES"
         c.font = _font(bold=True, size=13, color=C["navy_fg"])
         c.fill = _fill(C["navy"])
         c.alignment = _center()
         ws.row_dimensions[r].height = 26
         r += 2
 
-        # Walls
         r = self._section_header(ws, r, "WALL TYPES", 6)
-        for label in ["Type ID", "Description", "Linear Feet", "Height", "Fire Rating", "Notes"]:
-            i = ["Type ID", "Description", "Linear Feet", "Height", "Fire Rating", "Notes"].index(label) + 1
+        for i, label in enumerate(
+            ["Type ID", "Description", "Linear Feet", "Height", "Fire Rating", "Notes"], 1
+        ):
             c = ws.cell(row=r, column=i, value=label)
             c.font = _font(bold=True)
             c.fill = _fill(C["light_blue"])
@@ -365,125 +365,43 @@ class ExcelReporter:
                 c.alignment = _right() if i == 3 else _left(wrap=(i in (2, 6)))
             r += 1
 
-        r += 1
-
-        # Doors
-        r = self._section_header(ws, r, "DOORS & OPENINGS", 6)
-        for i, label in enumerate(["Mark", "Quantity", "Size", "Type", "Frame Type", "Notes"], 1):
-            c = ws.cell(row=r, column=i, value=label)
-            c.font = _font(bold=True)
-            c.fill = _fill(C["light_blue"])
-            c.border = THIN
-        r += 1
-
-        for door in data.get("doors", []):
-            for i, val in enumerate(
-                [
-                    door.get("door_mark", ""),
-                    door.get("quantity", 0),
-                    door.get("size", ""),
-                    door.get("door_type", ""),
-                    door.get("frame_type", ""),
-                    door.get("notes", ""),
-                ],
-                1,
-            ):
-                c = ws.cell(row=r, column=i, value=val)
-                c.border = THIN
-                c.font = _font()
-                c.alignment = _right() if i == 2 else _left()
-            r += 1
-
-        for opening in data.get("openings", []):
-            for i, val in enumerate(
-                [
-                    "",
-                    opening.get("quantity", 0),
-                    opening.get("size", ""),
-                    opening.get("opening_type", ""),
-                    "",
-                    opening.get("notes", ""),
-                ],
-                1,
-            ):
-                c = ws.cell(row=r, column=i, value=val)
-                c.border = THIN
-                c.font = _font()
-            r += 1
-
     def _rcp_detail(self, wb, data: dict):
         ws = wb.create_sheet("RCP Detail")
-        widths = [20, 42, 10, 16, 32]
+        widths = [15, 42, 12, 16, 32]
         for i, w in enumerate(widths, 1):
             ws.column_dimensions[get_column_letter(i)].width = w
 
         r = 1
         ws.merge_cells(f"A{r}:E{r}")
         c = ws[f"A{r}"]
-        c.value = "REFLECTED CEILING PLAN — DETAILED EXTRACTION DATA"
+        c.value = "REFLECTED CEILING PLAN — CEILING TYPE QUANTITIES"
         c.font = _font(bold=True, size=13, color=C["navy_fg"])
         c.fill = _fill(C["navy"])
         c.alignment = _center()
         ws.row_dimensions[r].height = 26
         r += 2
 
-        sections = [
-            (
-                "LIGHT FIXTURES",
-                "light_fixtures",
-                ["Mark", "Fixture Type", "Qty", "Wattage", "Notes"],
-                ["fixture_mark", "fixture_type", "quantity", "wattage", "notes"],
-            ),
-            (
-                "HVAC DEVICES",
-                "hvac_devices",
-                ["Mark", "Device Type", "Qty", "Size", "Notes"],
-                ["mark", "device_type", "quantity", "size", "notes"],
-            ),
-            (
-                "FIRE PROTECTION",
-                "fire_protection_devices",
-                ["", "Device Type", "Qty", "", "Notes"],
-                ["", "device_type", "quantity", "", "notes"],
-            ),
-            (
-                "LIFE SAFETY",
-                "life_safety_devices",
-                ["", "Device Type", "Qty", "", "Notes"],
-                ["", "device_type", "quantity", "", "notes"],
-            ),
-            (
-                "CEILING TYPES",
-                "ceiling_types",
-                ["Type ID", "Description", "Area (SF)", "Height AFF", "Notes"],
-                ["type_id", "description", "estimated_area_sf", "height_aff", "notes"],
-            ),
-        ]
+        r = self._section_header(ws, r, "CEILING TYPES", 5)
+        for i, label in enumerate(["Type ID", "Description", "Area (SF)", "Height AFF", "Notes"], 1):
+            c = ws.cell(row=r, column=i, value=label)
+            c.font = _font(bold=True)
+            c.fill = _fill(C["light_blue"])
+            c.border = THIN
+        r += 1
 
-        for title, key, header_labels, field_keys in sections:
-            items = data.get(key, [])
-            if not items:
-                continue
-
-            r = self._section_header(ws, r, title, 5)
-
-            for i, label in enumerate(header_labels, 1):
-                if label:
-                    c = ws.cell(row=r, column=i, value=label)
-                    c.font = _font(bold=True)
-                    c.fill = _fill(C["light_blue"])
-                    c.border = THIN
-            r += 1
-
-            for item in items:
-                for i, fk in enumerate(field_keys, 1):
-                    val = item.get(fk, "") if fk else ""
-                    c = ws.cell(row=r, column=i, value=val)
-                    c.border = THIN
-                    c.font = _font()
-                    c.alignment = _right() if fk in ("quantity", "estimated_area_sf") else _left(wrap=(i == 2))
-                r += 1
-
+        for ceiling in data.get("ceiling_types", []):
+            row_data = [
+                ceiling.get("type_id", ""),
+                ceiling.get("description", ""),
+                ceiling.get("estimated_area_sf", 0),
+                ceiling.get("height_aff", ""),
+                ceiling.get("notes", ""),
+            ]
+            for i, val in enumerate(row_data, 1):
+                c = ws.cell(row=r, column=i, value=val)
+                c.border = THIN
+                c.font = _font()
+                c.alignment = _right() if i == 3 else _left(wrap=(i in (2, 5)))
             r += 1
 
     # ── Helpers ───────────────────────────────────────────────────────────────

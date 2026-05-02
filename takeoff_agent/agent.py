@@ -16,36 +16,33 @@ SYSTEM_PROMPT = """You are an expert architectural estimator and quantity survey
 
 Your role is to analyse architectural drawings provided as images and extract precise quantities for construction estimation. You work methodically and leave nothing out.
 
-## Scope of expertise
-- **Partition plans**: wall types and linear footage, doors and hardware, openings, room data
-- **Reflected Ceiling Plans (RCP)**: light fixture types/counts, HVAC diffusers/grilles, sprinkler heads, smoke detectors, exit signs, emergency lights, ceiling types and areas
+## Current scope
+- **Partition plans**: wall type quantities in linear feet only
+- **Reflected Ceiling Plans (RCP)**: ceiling type quantities in square feet only
 - Architectural legends, schedules, and keynotes
 - Drawing scales and dimension interpretation
-- Construction assemblies and materials
 
 ## Workflow — follow this order strictly
 1. Call **classify_drawing** — identify type, scale, title block, and legends present
 2. Call the matching extraction tool:
-   - Partition plan → **extract_partition_data**
-   - Reflected ceiling plan → **extract_rcp_data**
+   - Partition plan → **extract_partition_data** (wall types + LF)
+   - Reflected ceiling plan → **extract_rcp_data** (ceiling types + SF)
    - Unknown/other → use the closest match and note it
-3. (Optional) Call **request_region_analysis** for any dense or unclear area
+3. (Optional) Call **request_region_analysis** for any unclear area
 4. Call **finalize_takeoff** — compile the complete, structured take-off
 
 ## Measurement principles
-- Work the drawing in a consistent pattern (left→right, top→bottom) to avoid missing items
-- **Counted items** (fixtures, doors): count each symbol directly → confidence = high
-- **Linear measurements** (walls): use the scale to estimate lengths; note the method → confidence = medium
-- **Area estimates**: derive from room extents and scale → confidence = medium
-- When scale is unclear, state that explicitly and use "estimated" method
+- **Linear measurements** (walls): trace each wall type across the drawing using the scale; note the method → confidence = medium
+- **Area estimates** (ceilings): derive from room/zone extents using the scale → confidence = medium
+- When scale is unclear, state that explicitly and mark confidence = low
+- Work left→right, top→bottom to avoid missing any zones or wall runs
 
 ## Quality standards
-- **High confidence**: directly counted or precisely scale-measured
-- **Medium confidence**: estimated from visual proportions and noted scale
+- **High confidence**: precisely scale-measured with a clear scale bar
+- **Medium confidence**: estimated from visual proportions using the noted scale
 - **Low confidence**: inferred, partially obscured, or scale unknown
-- Always report the measurement basis
-- Flag verification items rather than guessing silently
-- Duplicate-count risk: items shown in both the plan AND a schedule should be noted once with a verification flag"""
+- Always report the measurement basis in measurement_notes
+- Flag verification items rather than guessing silently"""
 
 
 @dataclass
@@ -235,23 +232,22 @@ class TakeoffAgent:
 
         if tool_name == "extract_partition_data":
             walls = len(tool_input.get("walls", []))
-            doors = tool_input.get("total_door_count", 0)
             lf = tool_input.get("total_wall_lf", 0)
             return {
                 "status": "ok",
                 "message": (
-                    f"Captured {walls} wall type(s), {lf:.0f} LF total, {doors} door(s). "
+                    f"Captured {walls} wall type(s), {lf:.0f} LF total. "
                     "Call finalize_takeoff to compile the report."
                 ),
             }
 
         if tool_name == "extract_rcp_data":
-            fixtures = tool_input.get("total_light_fixture_count", 0)
+            ceilings = len(tool_input.get("ceiling_types", []))
             area = tool_input.get("total_ceiling_area_sf", 0)
             return {
                 "status": "ok",
                 "message": (
-                    f"Captured {fixtures} light fixture(s), {area:.0f} SF ceiling area. "
+                    f"Captured {ceilings} ceiling type(s), {area:.0f} SF total. "
                     "Call finalize_takeoff to compile the report."
                 ),
             }
@@ -296,8 +292,7 @@ class TakeoffAgent:
         """Fallback: assemble line items directly from raw extraction data."""
         items: list[dict] = []
 
-        partition = collected.get("extract_partition_data", {})
-        for wall in partition.get("walls", []):
+        for wall in collected.get("extract_partition_data", {}).get("walls", []):
             items.append(
                 {
                     "category": "Partitions",
@@ -309,95 +304,8 @@ class TakeoffAgent:
                     "notes": wall.get("notes", ""),
                 }
             )
-        for door in partition.get("doors", []):
-            items.append(
-                {
-                    "category": "Doors & Hardware",
-                    "item_code": door.get("door_mark", ""),
-                    "description": " ".join(
-                        filter(None, [door.get("door_type", "Door"), door.get("size", "")])
-                    ),
-                    "quantity": door.get("quantity", 0),
-                    "unit": "EA",
-                    "confidence": "high",
-                    "notes": door.get("notes", ""),
-                }
-            )
-        for opening in partition.get("openings", []):
-            items.append(
-                {
-                    "category": "Openings",
-                    "item_code": "",
-                    "description": opening.get("opening_type", "Opening"),
-                    "quantity": opening.get("quantity", 0),
-                    "unit": "EA",
-                    "confidence": "high",
-                    "notes": opening.get("notes", ""),
-                }
-            )
 
-        rcp = collected.get("extract_rcp_data", {})
-        for fixture in rcp.get("light_fixtures", []):
-            items.append(
-                {
-                    "category": "Light Fixtures",
-                    "item_code": fixture.get("fixture_mark", ""),
-                    "description": fixture.get("fixture_type", ""),
-                    "quantity": fixture.get("quantity", 0),
-                    "unit": "EA",
-                    "confidence": "high",
-                    "notes": fixture.get("notes", ""),
-                }
-            )
-        for device in rcp.get("hvac_devices", []):
-            items.append(
-                {
-                    "category": "HVAC",
-                    "item_code": device.get("mark", ""),
-                    "description": device.get("device_type", ""),
-                    "quantity": device.get("quantity", 0),
-                    "unit": "EA",
-                    "confidence": "high",
-                    "notes": device.get("notes", ""),
-                }
-            )
-        for device in rcp.get("fire_protection_devices", []):
-            items.append(
-                {
-                    "category": "Fire Protection",
-                    "item_code": "",
-                    "description": device.get("device_type", ""),
-                    "quantity": device.get("quantity", 0),
-                    "unit": "EA",
-                    "confidence": "high",
-                    "notes": device.get("notes", ""),
-                }
-            )
-        for device in rcp.get("life_safety_devices", []):
-            items.append(
-                {
-                    "category": "Life Safety",
-                    "item_code": "",
-                    "description": device.get("device_type", ""),
-                    "quantity": device.get("quantity", 0),
-                    "unit": "EA",
-                    "confidence": "high",
-                    "notes": device.get("notes", ""),
-                }
-            )
-        for element in rcp.get("other_ceiling_elements", []):
-            items.append(
-                {
-                    "category": "Ceilings",
-                    "item_code": "",
-                    "description": element.get("element_type", ""),
-                    "quantity": element.get("quantity", 0),
-                    "unit": element.get("unit", "EA"),
-                    "confidence": "medium",
-                    "notes": element.get("notes", ""),
-                }
-            )
-        for ceiling in rcp.get("ceiling_types", []):
+        for ceiling in collected.get("extract_rcp_data", {}).get("ceiling_types", []):
             items.append(
                 {
                     "category": "Ceilings",

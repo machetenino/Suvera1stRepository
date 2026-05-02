@@ -71,10 +71,9 @@ TOOLS = [
     {
         "name": "extract_partition_data",
         "description": (
-            "Extract all partition/wall data from a partition plan drawing. "
-            "Identify each wall type by its legend symbol or line pattern, "
-            "estimate linear footage by tracing each wall type across the drawing, "
-            "count all door and opening types. Use the drawing scale to derive measurements."
+            "Extract wall type quantities from a partition plan drawing. "
+            "Identify each wall type from the legend, then estimate the total linear footage "
+            "of each type by tracing it across the drawing using the noted scale."
         ),
         "input_schema": {
             "type": "object",
@@ -101,7 +100,7 @@ TOOLS = [
                             },
                             "height": {
                                 "type": "string",
-                                "description": "Wall height if noted (e.g., '9\\'-0\" AFF', 'Full height to deck', '10\\'-0\"')",
+                                "description": "Wall height if noted (e.g., '9\\'-0\" AFF', 'Full height to deck')",
                             },
                             "fire_rating": {
                                 "type": "string",
@@ -117,81 +116,24 @@ TOOLS = [
                         "required": ["type_id", "estimated_linear_feet", "quantity_method"],
                     },
                 },
-                "doors": {
-                    "type": "array",
-                    "items": {
-                        "type": "object",
-                        "properties": {
-                            "door_mark": {
-                                "type": "string",
-                                "description": "Door number/mark from plan (e.g., '101', 'D-1')",
-                            },
-                            "quantity": {"type": "integer"},
-                            "size": {
-                                "type": "string",
-                                "description": "Width x Height (e.g., '3\\'0\" x 7\\'0\"', '36\" x 84\"')",
-                            },
-                            "door_type": {
-                                "type": "string",
-                                "description": "e.g., 'Single Swing', 'Double Swing', 'Sliding', 'Pocket', 'Bi-fold'",
-                            },
-                            "frame_type": {
-                                "type": "string",
-                                "description": "e.g., 'HM Frame', 'Aluminum', 'Wood', 'No Frame'",
-                            },
-                            "hardware_group": {"type": "string"},
-                            "notes": {"type": "string"},
-                        },
-                        "required": ["quantity"],
-                    },
-                },
-                "openings": {
-                    "type": "array",
-                    "items": {
-                        "type": "object",
-                        "properties": {
-                            "opening_type": {
-                                "type": "string",
-                                "description": "e.g., 'Pass-through', 'Borrowed Lite', 'Sidelight', 'Window Opening'",
-                            },
-                            "quantity": {"type": "integer"},
-                            "size": {"type": "string"},
-                            "notes": {"type": "string"},
-                        },
-                        "required": ["opening_type", "quantity"],
-                    },
-                },
-                "rooms": {
-                    "type": "array",
-                    "items": {
-                        "type": "object",
-                        "properties": {
-                            "room_number": {"type": "string"},
-                            "room_name": {"type": "string"},
-                            "estimated_area_sf": {"type": "number"},
-                        },
-                    },
-                },
                 "total_wall_lf": {
                     "type": "number",
                     "description": "Sum of all wall type linear footage",
                 },
-                "total_door_count": {"type": "integer"},
                 "measurement_notes": {
                     "type": "string",
                     "description": "How measurements were derived and their accuracy level",
                 },
             },
-            "required": ["walls", "total_wall_lf", "total_door_count"],
+            "required": ["walls", "total_wall_lf"],
         },
     },
     {
         "name": "extract_rcp_data",
         "description": (
-            "Extract all ceiling-mounted elements from a Reflected Ceiling Plan (RCP). "
-            "Systematically count every symbol type using the drawing legend. "
-            "Identify ceiling types and estimate their areas. "
-            "Include light fixtures, HVAC devices, fire protection, and life safety elements."
+            "Extract ceiling type quantities from a Reflected Ceiling Plan (RCP). "
+            "Identify each ceiling type from the legend, then estimate the area of each type "
+            "by measuring the zones shown on the drawing using the noted scale."
         ),
         "input_schema": {
             "type": "object",
@@ -220,131 +162,16 @@ TOOLS = [
                         "required": ["description", "estimated_area_sf"],
                     },
                 },
-                "light_fixtures": {
-                    "type": "array",
-                    "items": {
-                        "type": "object",
-                        "properties": {
-                            "fixture_mark": {
-                                "type": "string",
-                                "description": "Fixture designation from legend (e.g., 'A', 'B1', 'L-1', 'F1')",
-                            },
-                            "fixture_type": {
-                                "type": "string",
-                                "description": (
-                                    "Type description "
-                                    "(e.g., '2x4 LED Lay-in Troffer', 'Recessed Downlight', "
-                                    "'1x4 Linear LED', 'Surface Mount', 'Pendant')"
-                                ),
-                            },
-                            "quantity": {"type": "integer"},
-                            "manufacturer_model": {"type": "string"},
-                            "wattage": {"type": "string"},
-                            "notes": {"type": "string"},
-                        },
-                        "required": ["fixture_type", "quantity"],
-                    },
-                },
-                "hvac_devices": {
-                    "type": "array",
-                    "items": {
-                        "type": "object",
-                        "properties": {
-                            "device_type": {
-                                "type": "string",
-                                "description": (
-                                    "e.g., 'Supply Air Diffuser', 'Return Air Grille', "
-                                    "'Exhaust Grille', 'Linear Slot Diffuser', "
-                                    "'Fan Coil Unit', 'VAV Box'"
-                                ),
-                            },
-                            "mark": {"type": "string"},
-                            "quantity": {"type": "integer"},
-                            "size": {
-                                "type": "string",
-                                "description": "e.g., '24x24', '12x12', '6\" dia'",
-                            },
-                            "cfm": {"type": "string"},
-                            "notes": {"type": "string"},
-                        },
-                        "required": ["device_type", "quantity"],
-                    },
-                },
-                "fire_protection_devices": {
-                    "type": "array",
-                    "items": {
-                        "type": "object",
-                        "properties": {
-                            "device_type": {
-                                "type": "string",
-                                "description": (
-                                    "e.g., 'Sprinkler Head - Pendant', "
-                                    "'Sprinkler Head - Concealed', "
-                                    "'Sprinkler Head - Upright', "
-                                    "'Smoke Detector', 'Heat Detector', "
-                                    "'Duct Smoke Detector'"
-                                ),
-                            },
-                            "quantity": {"type": "integer"},
-                            "notes": {"type": "string"},
-                        },
-                        "required": ["device_type", "quantity"],
-                    },
-                },
-                "life_safety_devices": {
-                    "type": "array",
-                    "items": {
-                        "type": "object",
-                        "properties": {
-                            "device_type": {
-                                "type": "string",
-                                "description": (
-                                    "e.g., 'Exit Sign', 'Emergency Light', "
-                                    "'Combination Exit/Emergency', 'Horn/Strobe', "
-                                    "'Speaker', 'CO Detector', 'Pull Station'"
-                                ),
-                            },
-                            "quantity": {"type": "integer"},
-                            "notes": {"type": "string"},
-                        },
-                        "required": ["device_type", "quantity"],
-                    },
-                },
-                "other_ceiling_elements": {
-                    "type": "array",
-                    "items": {
-                        "type": "object",
-                        "properties": {
-                            "element_type": {
-                                "type": "string",
-                                "description": (
-                                    "Anything not covered above: "
-                                    "e.g., 'Access Panel', 'Ceiling Fan', 'Projection Screen', "
-                                    "'Skylight', 'Ceiling Grid LF', 'Soffit'"
-                                ),
-                            },
-                            "quantity": {"type": "number"},
-                            "unit": {
-                                "type": "string",
-                                "description": "EA, LF, SF, etc.",
-                            },
-                            "notes": {"type": "string"},
-                        },
-                        "required": ["element_type", "quantity", "unit"],
-                    },
-                },
                 "total_ceiling_area_sf": {
                     "type": "number",
                     "description": "Total ceiling area across all ceiling types",
                 },
-                "total_light_fixture_count": {"type": "integer"},
-                "total_hvac_device_count": {"type": "integer"},
                 "measurement_notes": {
                     "type": "string",
-                    "description": "How areas and counts were derived",
+                    "description": "How areas were derived",
                 },
             },
-            "required": ["ceiling_types", "light_fixtures", "total_ceiling_area_sf", "total_light_fixture_count"],
+            "required": ["ceiling_types", "total_ceiling_area_sf"],
         },
     },
     {
