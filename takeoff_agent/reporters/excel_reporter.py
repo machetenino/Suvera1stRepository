@@ -341,7 +341,7 @@ class ExcelReporter:
 
         r = self._section_header(ws, r, "WALL TYPES", 6)
         for i, label in enumerate(
-            ["Type ID", "Description", "Linear Feet", "Height", "Fire Rating", "Notes"], 1
+            ["Type ID", "Description", "Linear Metres (LM)", "Height", "Fire Rating", "Notes"], 1
         ):
             c = ws.cell(row=r, column=i, value=label)
             c.font = _font(bold=True)
@@ -353,7 +353,7 @@ class ExcelReporter:
             row_data = [
                 wall.get("type_id", ""),
                 wall.get("description", ""),
-                wall.get("estimated_linear_feet", 0),
+                wall.get("estimated_linear_metres", 0),
                 wall.get("height", ""),
                 wall.get("fire_rating", ""),
                 wall.get("notes", ""),
@@ -382,7 +382,7 @@ class ExcelReporter:
         r += 2
 
         r = self._section_header(ws, r, "CEILING TYPES", 5)
-        for i, label in enumerate(["Type ID", "Description", "Area (SF)", "Height AFF", "Notes"], 1):
+        for i, label in enumerate(["Type ID", "Description", "Area (m²)", "Height AFF", "Notes"], 1):
             c = ws.cell(row=r, column=i, value=label)
             c.font = _font(bold=True)
             c.fill = _fill(C["light_blue"])
@@ -393,7 +393,7 @@ class ExcelReporter:
             row_data = [
                 ceiling.get("type_id", ""),
                 ceiling.get("description", ""),
-                ceiling.get("estimated_area_sf", 0),
+                ceiling.get("estimated_area_m2", 0),
                 ceiling.get("height_aff", ""),
                 ceiling.get("notes", ""),
             ]

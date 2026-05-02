@@ -94,9 +94,9 @@ TOOLS = [
                                     "(e.g., '3-5/8\" 20ga Metal Stud @ 16\" OC, 5/8\" GWB each side')"
                                 ),
                             },
-                            "estimated_linear_feet": {
+                            "estimated_linear_metres": {
                                 "type": "number",
-                                "description": "Estimated total linear feet of this wall type in the drawing",
+                                "description": "Estimated total linear metres (LM) of this wall type in the drawing",
                             },
                             "height": {
                                 "type": "string",
@@ -113,19 +113,19 @@ TOOLS = [
                             },
                             "notes": {"type": "string"},
                         },
-                        "required": ["type_id", "estimated_linear_feet", "quantity_method"],
+                        "required": ["type_id", "estimated_linear_metres", "quantity_method"],
                     },
                 },
-                "total_wall_lf": {
+                "total_wall_lm": {
                     "type": "number",
-                    "description": "Sum of all wall type linear footage",
+                    "description": "Sum of all wall type linear metres",
                 },
                 "measurement_notes": {
                     "type": "string",
                     "description": "How measurements were derived and their accuracy level",
                 },
             },
-            "required": ["walls", "total_wall_lf"],
+            "required": ["walls", "total_wall_lm"],
         },
     },
     {
@@ -152,7 +152,7 @@ TOOLS = [
                                     "'Wood Plank', '2x2 ACT'"
                                 ),
                             },
-                            "estimated_area_sf": {"type": "number"},
+                            "estimated_area_m2": {"type": "number", "description": "Estimated area in square metres (m²)"},
                             "height_aff": {
                                 "type": "string",
                                 "description": "Ceiling height above finished floor (e.g., '9\\'-0\"', '10\\'-0\"')",
@@ -162,16 +162,16 @@ TOOLS = [
                         "required": ["description", "estimated_area_sf"],
                     },
                 },
-                "total_ceiling_area_sf": {
+                "total_ceiling_area_m2": {
                     "type": "number",
-                    "description": "Total ceiling area across all ceiling types",
+                    "description": "Total ceiling area in square metres (m²) across all ceiling types",
                 },
                 "measurement_notes": {
                     "type": "string",
                     "description": "How areas were derived",
                 },
             },
-            "required": ["ceiling_types", "total_ceiling_area_sf"],
+            "required": ["ceiling_types", "total_ceiling_area_m2"],
         },
     },
     {
@@ -239,7 +239,7 @@ TOOLS = [
                             "quantity": {"type": "number"},
                             "unit": {
                                 "type": "string",
-                                "description": "LF, EA, SF, etc.",
+                                "description": "LM (linear metres), EA, m² (square metres), etc.",
                             },
                             "confidence": {
                                 "type": "string",

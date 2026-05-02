@@ -2,6 +2,7 @@
 
 import json
 import logging
+import os
 from dataclasses import dataclass, field
 from pathlib import Path
 
@@ -12,26 +13,43 @@ from .tools import TOOLS
 
 logger = logging.getLogger(__name__)
 
+
+def _make_client() -> anthropic.Anthropic:
+    """Create an Anthropic client, supporting both API key and OAuth token auth."""
+    api_key = os.environ.get("ANTHROPIC_API_KEY")
+    auth_token = os.environ.get("ANTHROPIC_AUTH_TOKEN")
+
+    # Claude Code web sessions use a session ingress token file
+    if not api_key and not auth_token:
+        token_file = os.environ.get("CLAUDE_SESSION_INGRESS_TOKEN_FILE")
+        if token_file and Path(token_file).exists():
+            auth_token = Path(token_file).read_text().strip()
+
+    if auth_token and not api_key:
+        return anthropic.Anthropic(auth_token=auth_token)
+    return anthropic.Anthropic()  # falls back to ANTHROPIC_API_KEY
+
 SYSTEM_PROMPT = """You are an expert architectural estimator and quantity surveyor specialising in construction take-offs from architectural drawings.
 
 Your role is to analyse architectural drawings provided as images and extract precise quantities for construction estimation. You work methodically and leave nothing out.
 
 ## Current scope
-- **Partition plans**: wall type quantities in linear feet only
-- **Reflected Ceiling Plans (RCP)**: ceiling type quantities in square feet only
+- **Partition plans**: wall type quantities in **linear metres (LM)** only
+- **Reflected Ceiling Plans (RCP)**: ceiling type quantities in **square metres (m²)** only
 - Architectural legends, schedules, and keynotes
 - Drawing scales and dimension interpretation
 
 ## Workflow — follow this order strictly
 1. Call **classify_drawing** — identify type, scale, title block, and legends present
 2. Call the matching extraction tool:
-   - Partition plan → **extract_partition_data** (wall types + LF)
-   - Reflected ceiling plan → **extract_rcp_data** (ceiling types + SF)
+   - Partition plan → **extract_partition_data** (wall types + LM)
+   - Reflected ceiling plan → **extract_rcp_data** (ceiling types + m²)
    - Unknown/other → use the closest match and note it
 3. (Optional) Call **request_region_analysis** for any unclear area
 4. Call **finalize_takeoff** — compile the complete, structured take-off
 
 ## Measurement principles
+- All drawings use **metric units** — report lengths in **linear metres (LM)** and areas in **square metres (m²)**
 - **Linear measurements** (walls): trace each wall type across the drawing using the scale; note the method → confidence = medium
 - **Area estimates** (ceilings): derive from room/zone extents using the scale → confidence = medium
 - When scale is unclear, state that explicitly and mark confidence = low
@@ -67,7 +85,7 @@ class TakeoffAgent:
     """
 
     def __init__(self, model: str = "claude-sonnet-4-6", max_iterations: int = 12):
-        self.client = anthropic.Anthropic()
+        self.client = _make_client()
         self.model = model
         self.max_iterations = max_iterations
 
@@ -148,11 +166,8 @@ class TakeoffAgent:
                 "content": [
                     {
                         "type": "image",
-                        "source": {
-                            **image_source,
-                            # Cache the image — subsequent turns reuse the cached token
-                            "cache_control": {"type": "ephemeral"},
-                        },
+                        "source": image_source,
+                        "cache_control": {"type": "ephemeral"},
                     },
                     {
                         "type": "text",
@@ -232,22 +247,22 @@ class TakeoffAgent:
 
         if tool_name == "extract_partition_data":
             walls = len(tool_input.get("walls", []))
-            lf = tool_input.get("total_wall_lf", 0)
+            lm = tool_input.get("total_wall_lm", 0)
             return {
                 "status": "ok",
                 "message": (
-                    f"Captured {walls} wall type(s), {lf:.0f} LF total. "
+                    f"Captured {walls} wall type(s), {lm:.0f} LM total. "
                     "Call finalize_takeoff to compile the report."
                 ),
             }
 
         if tool_name == "extract_rcp_data":
             ceilings = len(tool_input.get("ceiling_types", []))
-            area = tool_input.get("total_ceiling_area_sf", 0)
+            area = tool_input.get("total_ceiling_area_m2", 0)
             return {
                 "status": "ok",
                 "message": (
-                    f"Captured {ceilings} ceiling type(s), {area:.0f} SF total. "
+                    f"Captured {ceilings} ceiling type(s), {area:.0f} m² total. "
                     "Call finalize_takeoff to compile the report."
                 ),
             }
@@ -298,8 +313,8 @@ class TakeoffAgent:
                     "category": "Partitions",
                     "item_code": wall.get("type_id", ""),
                     "description": wall.get("description") or wall.get("type_id", ""),
-                    "quantity": wall.get("estimated_linear_feet", 0),
-                    "unit": "LF",
+                    "quantity": wall.get("estimated_linear_metres", 0),
+                    "unit": "LM",
                     "confidence": "medium",
                     "notes": wall.get("notes", ""),
                 }
@@ -311,8 +326,8 @@ class TakeoffAgent:
                     "category": "Ceilings",
                     "item_code": ceiling.get("type_id", ""),
                     "description": ceiling.get("description", ""),
-                    "quantity": ceiling.get("estimated_area_sf", 0),
-                    "unit": "SF",
+                    "quantity": ceiling.get("estimated_area_m2", 0),
+                    "unit": "m²",
                     "confidence": "medium",
                     "notes": ceiling.get("notes", ""),
                 }
