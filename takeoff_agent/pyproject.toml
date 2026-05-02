@@ -1,0 +1,25 @@
+[build-system]
+requires = ["setuptools>=68", "wheel"]
+build-backend = "setuptools.backends.legacy:build"
+
+[project]
+name = "takeoff-agent"
+version = "0.1.0"
+description = "AI-powered architectural construction take-off agent"
+requires-python = ">=3.11"
+dependencies = [
+    "anthropic>=0.49.0",
+    "pdf2image>=1.17.0",
+    "Pillow>=10.4.0",
+    "openpyxl>=3.1.2",
+    "click>=8.1.7",
+    "rich>=13.7.0",
+    "python-dotenv>=1.0.0",
+]
+
+[project.scripts]
+takeoff = "takeoff_agent.main:main"
+
+[tool.setuptools.packages.find]
+where = ["."]
+include = ["takeoff_agent*"]
