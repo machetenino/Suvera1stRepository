@@ -130,8 +130,8 @@
 
 /* ─────────────────────────────────────────────
    5. CONTACT FORM
-   Submits to Formspree (replace YOUR_FORM_ID in the
-   action attribute with a real Formspree endpoint).
+   Submits to the Formspree endpoint set in the
+   form's action attribute (enquire/index.html).
    Shows inline success message on completion.
 ───────────────────────────────────────────── */
 (function () {
