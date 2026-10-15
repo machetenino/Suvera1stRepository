@@ -573,7 +573,7 @@ button { cursor: pointer; font-family: inherit; }
 .about {
   position:      relative;
   padding:       var(--pad-y) var(--pad-x);
-  background:    var(--white);
+  background:    var(--off-white);
   border-top:    0.5px solid var(--rule);
   border-bottom: 0.5px solid var(--rule);
 }
@@ -905,7 +905,7 @@ button { cursor: pointer; font-family: inherit; }
 ══════════════════════════════════════════════════════ */
 .contact {
   padding:    clamp(60px, 7.5vw, 88px) var(--pad-x);
-  background: var(--white);
+  background: var(--off-white);
   border-top: 0.5px solid var(--rule);
 }
 
@@ -1938,7 +1938,7 @@ button { cursor: pointer; font-family: inherit; }
 .add-scopes {
   padding:    clamp(40px, 5.5vw, 60px) var(--pad-x);
   border-top: 0.5px solid var(--rule);
-  background: var(--white);
+  background: var(--off-white);
 }
 
 .add-scopes__inner {
@@ -2156,7 +2156,7 @@ button { cursor: pointer; font-family: inherit; }
 .about-intro {
   padding:       clamp(40px, 5.5vw, 60px) var(--pad-x);
   border-bottom: 0.5px solid var(--rule);
-  background:    var(--white);
+  background:    var(--off-white);
 }
 .about-intro__inner {
   max-width: 700px;
@@ -2305,7 +2305,7 @@ button { cursor: pointer; font-family: inherit; }
 .process-intro {
   padding:       clamp(56px, 6.5vw, 80px) var(--pad-x);
   border-bottom: 0.5px solid var(--rule);
-  background:    var(--white);
+  background:    var(--off-white);
 }
 .process-intro__inner {
   max-width: 700px;
