@@ -4,18 +4,18 @@
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>Enquire | Suvera Projects Group</title>
-  <meta name="description" content="Tell us about your project. We respond within one business day. A straight conversation about whether we are right for your project.">
+  <meta name="description" content="Tell us about your project. A reply within one business day.">
   <!-- Open Graph -->
   <meta property="og:type"        content="website">
   <meta property="og:site_name"   content="Suvera Projects Group">
   <meta property="og:title"       content="Enquire | Suvera Projects Group">
-  <meta property="og:description" content="Tell us about your project. We respond within one business day.">
+  <meta property="og:description" content="Tell us about your project. A reply within one business day.">
   <meta property="og:url"         content="https://suvera.com.au/enquire/">
   <meta property="og:image"       content="https://suvera.com.au/Hero.png">
   <!-- Twitter Card -->
   <meta name="twitter:card"        content="summary_large_image">
   <meta name="twitter:title"       content="Enquire | Suvera Projects Group">
-  <meta name="twitter:description" content="Tell us about your project. We respond within one business day.">
+  <meta name="twitter:description" content="Tell us about your project. A reply within one business day.">
   <meta name="twitter:image"       content="https://suvera.com.au/Hero.png">
   <!-- Favicon -->
   <link rel="icon" type="image/svg+xml" href="../favicon.svg">
@@ -68,11 +68,10 @@
         <span class="label fade-in" data-d="0">Get in touch</span>
         <h1 class="contact__heading fade-in" data-d="1">Tell us about<br>your project.</h1>
         <p class="contact__intro fade-in" data-d="2">
-          We work with clients who value clarity, structure and accountability
-          in construction. If that aligns with your project, we welcome the
-          conversation. Email us directly at
-          <a href="mailto:info@suvera.com.au">info@suvera.com.au</a> or
-          use the form below.
+          For clients who value clarity, structure and accountability.
+          A brief, a floor plan or a set of drawings is enough to begin.
+          Email <a href="mailto:info@suvera.com.au">info@suvera.com.au</a>
+          or use the form below.
         </p>
       </div>
 
@@ -106,6 +105,35 @@
         </div>
         <div class="form-row form-row--2">
           <div class="form-field">
+            <label for="f-role">I am a&hellip;</label>
+            <div class="select-wrap">
+              <select id="f-role" name="role">
+                <option value="" disabled selected></option>
+                <option>Tenant</option>
+                <option>Landlord or asset manager</option>
+                <option>Capex or building manager</option>
+                <option>Project manager</option>
+                <option>Designer or architect</option>
+                <option>Other</option>
+              </select>
+            </div>
+          </div>
+          <div class="form-field">
+            <label for="f-stage">Where is the project at?</label>
+            <div class="select-wrap">
+              <select id="f-stage" name="project_stage">
+                <option value="" disabled selected></option>
+                <option>An idea</option>
+                <option>Design underway</option>
+                <option>Drawings ready to price</option>
+                <option>Tender out now</option>
+              </select>
+            </div>
+          </div>
+        </div>
+
+        <div class="form-row form-row--2">
+          <div class="form-field">
             <label for="f-type">Project type</label>
             <div class="select-wrap">
               <select id="f-type" name="project_type">
@@ -135,6 +163,13 @@
         </div>
         <div class="form-row">
           <div class="form-field">
+            <label for="f-date">Lease date or target completion (optional)</label>
+            <input type="text" id="f-date" name="target_date" placeholder="Month / year">
+          </div>
+        </div>
+
+        <div class="form-row">
+          <div class="form-field">
             <label for="f-message">Tell us about the project</label>
             <textarea
               id="f-message"
@@ -145,8 +180,8 @@
           </div>
         </div>
         <div class="form-submit">
-          <button type="submit" class="btn btn--solid">Submit enquiry</button>
-          <span class="form__note">We respond within one business day.</span>
+          <button type="submit" class="btn btn--solid">Send enquiry</button>
+          <span class="form__note">A reply within one business day.</span>
         </div>
         <div class="form__success" id="formSuccess" hidden role="status">
           Thank you. We have received your enquiry and will be in touch within one business day.
